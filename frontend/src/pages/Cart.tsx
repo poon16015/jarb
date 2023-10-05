@@ -1,6 +1,5 @@
 import { useCallback } from "react";
 
-import Navbar from "./Navbar";
 import twohr from "../assets/2hr.png";
 import undertab from "../assets/undertab.png";
 
@@ -14,14 +13,8 @@ function Cart() {
       }, []);
 
     return (
-      
         <div
       style={{
-        position: "relative",
-        backgroundColor: "transparent",
-        width: "100%",
-        height: "1080px",
-        overflow: "hidden",
         textAlign: "left",
         fontSize: "24px",
         color: "#000",
@@ -211,7 +204,9 @@ function Cart() {
             bottom: "0%",
             left: "0%",
             backgroundColor: "#2d3d92",
+            cursor: "pointer",
           }}
+          onClick={ProductClick}
         />
         <b
           style={{
@@ -221,6 +216,7 @@ function Cart() {
             top: "21.43%",
             left: "12.32%",
             display: "inline-block",
+            cursor: "pointer",
           }}
           onClick={ProductClick}
         >{`<    เลือกสินค้า`}</b>
@@ -243,6 +239,7 @@ function Cart() {
             backgroundColor: "#2d3d92",
             width: "203px",
             height: "56px",
+            cursor: "pointer",
           }}
           onClick={AddressClick}
         />
@@ -254,7 +251,9 @@ function Cart() {
             display: "inline-block",
             width: "170px",
             height: "33px",
+            cursor: "pointer",
           }}
+          onClick={AddressClick}
         >{`ที่อยู่จัดส่ง      >`}</b>
       </div>
       <img
