@@ -179,19 +179,6 @@ function Navbar() {
         >
           บัญชีของฉัน
         </div>
-        <img
-          style={{
-            position: "absolute",
-            top: "-199px",
-            left: "-67px",
-            width: "483px",
-            height: "561px",
-            objectFit: "cover",
-            display: "none",
-          }}
-          alt=""
-          src={jarb}
-        />
         <div
           style={{
             position: "absolute",
