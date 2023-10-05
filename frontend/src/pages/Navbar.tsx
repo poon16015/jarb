@@ -36,7 +36,7 @@ function Navbar() {
 
       const [searchTerm, setSearchTerm] = useState("");
 
-      const handleSearchInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      const SearchInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchTerm(event.target.value);
       };
       
@@ -53,17 +53,7 @@ function Navbar() {
         fontFamily: "Inter",
       }}
     >
-      <div
-        style={{
-          position: "absolute",
-          top: "0px",
-          left: "0px",
-          backgroundColor: "transparent",
-          width: "1920px",
-          height: "1080px",
-          overflow: "hidden",
-        }}
-      >
+      
         <div
           style={{
             position: "absolute",
@@ -89,7 +79,7 @@ function Navbar() {
           type="text"
           placeholder="ค้นหาสินค้า"
           value={searchTerm}
-          onChange={handleSearchInputChange}
+          onChange={SearchInputChange}
           style={{
             padding: "30px",
             fontSize: "30px",
@@ -307,7 +297,7 @@ function Navbar() {
           onClick={JarbClick}
         />
       </div>
-    </div>
+    
   );
 }
 export default Navbar;
