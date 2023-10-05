@@ -1,10 +1,10 @@
 import React from 'react';
-import Navbar from './pages/Navbar'; 
+import Cart from './pages/Cart'; 
 
 function App() {
   return (
     <div>
-      <Navbar />
+      <Cart />
     </div>
   );
 }
