@@ -1,11 +1,20 @@
+import { useCallback } from "react";
+
 import Navbar from "./Navbar";
 import twohr from "../assets/2hr.png";
 import undertab from "../assets/undertab.png";
 
 function Cart() {
+    const ProductClick = useCallback(() => {
+        //sync "product" to the project
+      }, []);
+    
+      const AddressClick = useCallback(() => {
+        //sync "address" to the project
+      }, []);
+
     return (
-      <div>
-        <Navbar/>
+      
         <div
       style={{
         position: "relative",
@@ -213,6 +222,7 @@ function Cart() {
             left: "12.32%",
             display: "inline-block",
           }}
+          onClick={ProductClick}
         >{`<    เลือกสินค้า`}</b>
       </div>
       <div
@@ -234,6 +244,7 @@ function Cart() {
             width: "203px",
             height: "56px",
           }}
+          onClick={AddressClick}
         />
         <b
           style={{
@@ -259,8 +270,6 @@ function Cart() {
         src={undertab}
       />
     </div>
-      </div>
-
     );
   }
   

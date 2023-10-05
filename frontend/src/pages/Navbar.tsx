@@ -1,4 +1,4 @@
-import {useCallback } from "react";
+import {useCallback} from "react";
 import point from "../assets/3point.png";
 import account_icon from "../assets/account icon.png";
 import cart from "../assets/cart.png";
@@ -45,7 +45,7 @@ function Navbar() {
           position: "absolute",
           top: "0px",
           left: "0px",
-          backgroundColor: "#fff",
+          backgroundColor: "transparent",
           width: "1920px",
           height: "1080px",
           overflow: "hidden",
@@ -67,7 +67,7 @@ function Navbar() {
             top: "81px",
             left: "361px",
             backgroundColor: "#d9d9d9",
-            width: "993px",
+            width: "1070px",
             height: "75px",
           }}
         />
