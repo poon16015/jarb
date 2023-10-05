@@ -1,4 +1,7 @@
 import {useCallback} from "react";
+import React, { useState } from "react";
+
+
 import point from "../assets/3point.png";
 import account_icon from "../assets/account icon.png";
 import cart from "../assets/cart.png";
@@ -31,6 +34,16 @@ function Navbar() {
         //  sync "product" to the project
       }, []);
 
+      const [searchTerm, setSearchTerm] = useState("");
+
+      const handleSearchInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchTerm(event.target.value);
+      };
+      
+      const SearchSubmit = (event: React.FormEvent) => {
+        event.preventDefault();
+      };
+
   return (
     <div
       style={{
@@ -57,33 +70,33 @@ function Navbar() {
             top: "0px",
             left: "0px",
             backgroundColor: "#2d3d92",
-            width: "2091px",
+            width: "1980px",
             height: "210px",
           }}
         />
         <div
+        style={{
+          position: "absolute",
+          top: "82px",
+          left: "910px",
+          transform: "translateX(-50%)",
+          display: "flex",
+          width: "1130px",
+          height: "75px",
+        }}
+      >
+        <input
+          type="text"
+          placeholder="ค้นหาสินค้า"
+          value={searchTerm}
+          onChange={handleSearchInputChange}
           style={{
-            position: "absolute",
-            top: "81px",
-            left: "361px",
-            backgroundColor: "#d9d9d9",
+            padding: "30px",
+            fontSize: "30px",
+            marginRight: "50px",
             width: "1070px",
-            height: "75px",
           }}
         />
-        <div
-        
-          style={{
-            position: "absolute",
-            top: "97px",
-            left: "403px",
-            fontFamily: "'Comic Neue'",
-            display: "inline-block",
-            width: "546px",
-            height: "50px",
-          }}
-        >
-          ค้นหาสินค้า
         </div>
         <div
           style={{
@@ -104,9 +117,11 @@ function Navbar() {
           width: "53px",
           height: "52px",
           objectFit: "cover",
+          cursor: "pointer",
         }}
         alt=""
         src={glass} 
+        onClick={SearchSubmit}
       />
         <img
           style={{
