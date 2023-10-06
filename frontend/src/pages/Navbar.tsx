@@ -11,9 +11,6 @@ import jarb_wb from "../assets/jarb icon(wb).png";
 import glass from "../assets/magnifying glass.png";
 
 function Navbar() {
-    const JarbClick = useCallback(() => {
-        //  sync "product" to the project
-      }, []);
       const ContactClick = useCallback(() => {
         window.open("https://www.youtube.com/watch?v=xvFZjo5PgG0");
       }, []);

@@ -1,4 +1,3 @@
-import { useCallback } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 
@@ -320,18 +319,6 @@ function Address() {
         />
       </div>
       <div
-        style={{
-          position: "absolute",
-          top: "466px",
-          left: "131px",
-          fontSize: "16px",
-          textDecoration: "underline",
-          color: "#fcb117",
-        }}
-      >
-        เพิ่มที่อยู่
-      </div>
-      <div
             style={{
               position: "absolute",
               top: "876px",
@@ -347,9 +334,10 @@ function Address() {
               fontSize: "23px",  
               fontWeight: "bold",  
               lineHeight: "2.4",
+              textAlign: "center",
             }}
         >
-            <Link to="/cart" style={{ textDecoration: 'none', color: 'white', width: '80%', height: '100%' }}>
+            <Link to="/cart" style={{ textDecoration: 'none', color: 'white', width: '100%', height: '100%' }}>
                 {`<    ตะกร้าสินค้า`}
             </Link>
         </div>
@@ -369,10 +357,27 @@ function Address() {
                 fontSize: "23px",  
                 fontWeight: "bold",  
                 lineHeight: "2.4",
+                textAlign: "center",
             }}
         >
-            <Link to="/address" style={{ textDecoration: 'none', color: 'white', width: '80%', height: '100%' }}>
+            <Link to="/address" style={{ textDecoration: 'none', color: 'white', width: '100%', height: '100%' }}>
                 {'ชำระเงิน      >'}
+            </Link>
+        </div>
+        <div
+            style={{
+                position: "absolute",
+                top: "466px",
+                left: "131px",
+                display: "flex",
+                justifyContent: "flex-end",
+                cursor: "pointer",
+                fontSize: "16px",
+                textAlign: "center", 
+            }}
+        >
+            <Link to="/addaddress" style={{ textDecoration: 'none', color: '#fcb117', width: '100%', height: '100%',borderBottom: '1px solid #fcb117' }}>
+                เพิ่มที่อยู่
             </Link>
         </div>
     </div>

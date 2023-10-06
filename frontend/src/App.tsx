@@ -6,6 +6,7 @@ import Register from './pages/Register';
 import ForgotPassword from './pages/ForgotPassword';
 import Cart from './pages/Cart';
 import Address from './pages/Address';
+import AddAddress from './pages/AddAddress';
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
         <Route path="/forgotpassword" element={<ForgotPassword />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/address" element={<Address />} />
+        <Route path="/addaddress" element={<AddAddress />} />
+
       </Routes>
     </Router>
   )
