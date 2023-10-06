@@ -147,16 +147,16 @@ function Cart() {
         <div
           style={{
             position: "absolute",
-            top: "144px",
-            left: "15px",
+            top: "121px",
+            left: "24px",
             fontSize: "24px",
           }}
         >{`รวมทั้งหมด (บาท)   `}</div>
         <div
           style={{
             position: "absolute",
-            top: "129.5px",
-            left: "10.5px",
+            top: "111.5px",
+            left: "10.49px",
             borderTop: "1px solid #000",
             boxSizing: "border-box",
             width: "373.02px",
@@ -166,7 +166,7 @@ function Cart() {
         <div
           style={{
             position: "absolute",
-            top: "191.5px",
+            top: "158.5px",
             left: "10.5px",
             borderTop: "1px solid #000",
             boxSizing: "border-box",
@@ -203,9 +203,10 @@ function Cart() {
               fontSize: "23px",  
               fontWeight: "bold",  
               lineHeight: "2.4",
+              textAlign: "center",
             }}
         >
-            <Link to="/address" style={{ textDecoration: 'none', color: 'white', width: '80%', height: '100%' }}>
+            <Link to="/address" style={{ textDecoration: 'none', color: 'white', width: '100%', height: '100%' }}>
                 {`<    เลือกสินค้า`}
             </Link>
         </div>
@@ -225,9 +226,10 @@ function Cart() {
                 fontSize: "23px",  
                 fontWeight: "bold",  
                 lineHeight: "2.4",
+                textAlign: "center",
             }}
         >
-            <Link to="/address" style={{ textDecoration: 'none', color: 'white', width: '80%', height: '100%' }}>
+            <Link to="/address" style={{ textDecoration: 'none', color: 'white', width: '100%', height: '100%' }}>
                 {'ที่อยู่จัดส่ง      >'}
             </Link>
         </div>

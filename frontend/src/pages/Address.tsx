@@ -29,7 +29,7 @@ function Address() {
         style={{
           position: "absolute",
           top: "260px",
-          left: "1204px",
+          left: "1211px",
           width: "415px",
           height: "384px",
           fontSize: "48px",
@@ -40,7 +40,7 @@ function Address() {
             position: "absolute",
             top: "0px",
             left: "0px",
-            backgroundColor: "#fff",
+            backgroundColor: "white",
             border: "3px solid #000",
             boxSizing: "border-box",
             width: "415px",
@@ -81,6 +81,7 @@ function Address() {
             src={truck2}
           />
         </div>
+        
         <div
           style={{
             position: "absolute",
