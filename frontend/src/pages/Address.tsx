@@ -1,5 +1,6 @@
 import { useCallback } from "react";
 import { Link } from "react-router-dom";
+import Navbar from "./Navbar";
 
 import truck1 from "../assets/truck1.png";
 import truck2 from "../assets/truck2.png";
@@ -23,7 +24,7 @@ function Address() {
         color: "#000",
         fontFamily: "Inter",
       }}
-    >
+    ><Navbar/>
       <div
         style={{
           position: "absolute",
@@ -138,39 +139,7 @@ function Address() {
         alt=""
         src={undertab}
       />
-      <div
-        style={{
-          position: "absolute",
-          top: "876px",
-          left: "718px",
-          width: "235px",
-          height: "56px",
-          color: "#fff",
-        }}
-      >
-        <div
-          style={{
-            position: "absolute",
-            height: "100%",
-            width: "100%",
-            top: "0%",
-            right: "0%",
-            bottom: "0%",
-            left: "0%",
-            backgroundColor: "#2d3d92",
-          }}
-        />
-        <b
-          style={{
-            position: "absolute",
-            height: "58.93%",
-            width: "74.38%",
-            top: "21.43%",
-            left: "12.32%",
-            display: "inline-block",
-          }}
-        >{`<    ตะกร้าสินค้า`}</b>
-      </div>
+      
       <div
         style={{
           position: "absolute",
@@ -193,27 +162,7 @@ function Address() {
             height: "248px",
           }}
         />
-        <div
-          style={{
-            position: "absolute",
-            top: "616px",
-            left: "916px",
-            backgroundColor: "#2d3d92",
-            width: "203px",
-            height: "56px",
-          }}
-        />
-        <b
-          style={{
-            position: "absolute",
-            top: "628px",
-            left: "951px",
-            display: "inline-block",
-            color: "#fff",
-            width: "168px",
-            height: "33px",
-          }}
-        >{`ชำระเงิน        >`}</b>
+        
         <div
           style={{
             position: "absolute",
@@ -381,6 +330,50 @@ function Address() {
       >
         เพิ่มที่อยู่
       </div>
+      <div
+            style={{
+              position: "absolute",
+              top: "876px",
+              left: "750px",
+              width: "203px",
+              height: "56px",
+              color: "#fff",
+              backgroundColor: "#2d3d92",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "flex-end",
+              cursor: "pointer",
+              fontSize: "23px",  
+              fontWeight: "bold",  
+              lineHeight: "2.4",
+            }}
+        >
+            <Link to="/cart" style={{ textDecoration: 'none', color: 'white', width: '80%', height: '100%' }}>
+                {`<    ตะกร้าสินค้า`}
+            </Link>
+        </div>
+        <div
+            style={{
+                position: "absolute",
+                top: "876px",
+                left: "974px",
+                width: "203px",
+                height: "56px",
+                color: "#fff",
+                backgroundColor: "#2d3d92",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "flex-end",
+                cursor: "pointer",
+                fontSize: "23px",  
+                fontWeight: "bold",  
+                lineHeight: "2.4",
+            }}
+        >
+            <Link to="/address" style={{ textDecoration: 'none', color: 'white', width: '80%', height: '100%' }}>
+                {'ชำระเงิน      >'}
+            </Link>
+        </div>
     </div>
     );
   }

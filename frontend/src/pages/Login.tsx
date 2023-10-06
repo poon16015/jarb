@@ -227,7 +227,7 @@ const Login: FC = () => {
                     fontFamily: "Prata",
                     borderRadius: "15px",
                     border: "1px",
-
+                    cursor: "pointer",
 
                 }}
             >
