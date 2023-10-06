@@ -1,14 +1,11 @@
 import { FC, useCallback } from 'react'
 import jarb from "../assets/jarb icon.png";
-import user1 from "../assets/user (1).png";
-import lock from "../assets/lock.png";
-import email from "../assets/email.png";
-import hide from "../assets/hide.png";
+import register from "../assets/register.png";
 import facebook from "../assets/facebook.png";
 import google from "../assets/facebook (2).png";
 import twitter from "../assets/twitter.png";
 
-const Login: FC = () => {
+const Register: FC = () => {
 
     return (
         // logo and background jarb
@@ -49,21 +46,21 @@ const Login: FC = () => {
             <img
                 style={{                    //user login
                     position: "absolute",
-                    top: "130px",
+                    top: "100px",
                     left: "1374px",
-                    width: "200px",
-                    height: "200px",
+                    width: "230px",
+                    height: "230px",
                     objectFit: "cover",
                 }}
                 alt=""
-                src={user1}
+                src={register}
             />
 
-            <div
+            <           div
                 style={{                //login
                     position: "absolute",
-                    top: "350px",
-                    left: "1385px",
+                    top: "290px",
+                    left: "1345px",
                     color: "black",
                     display: "inline-block",
                     width: "495px",
@@ -72,11 +69,11 @@ const Login: FC = () => {
                     fontFamily: "Prata",
                 }}
             >
-                LOGIN
+                REGISTER
             </div>
 
             <div
-                style={{              // NewUser? Register
+                style={{              // Login Account
                     position: "absolute",
                     top: "60px",
                     left: "1690px",
@@ -89,128 +86,65 @@ const Login: FC = () => {
                 }}
 
             >
-                NewUser? Register
+                Login Account
             </div>
-
             <input                 //text email
                 type="text"
-                placeholder="Email*"
+                placeholder="Email *"
                 style={{
                     position: "absolute",
                     border: "1px",
                     height: "65px",
-                    padding: "20px",
+                    padding: "30px",
                     fontSize: "30px",
                     width: "700px",
-                    marginLeft: "1200px",
-                    marginTop: "-625px",
+                    marginLeft: "1150px",
+                    marginTop: "-685px",
                     fontFamily: "Prata",
-                    borderRadius: "10px",
+                    borderRadius: "30px",
                     backgroundColor: "#D3D3D3",
                 }}
             />
-
-
-            <img
-                style={{              //email icon
-                    position: "absolute",
-                    top: "471px",
-                    left: "1107px",
-                    width: "110px",
-                    height: "110px",
-                    objectFit: "cover",
-
-                }}
-                alt=""
-                src={email}
-
-            />
-
             <input                      //text password
                 type="text"
-                placeholder="password*"
+                placeholder="Password *"
                 style={{
                     position: "absolute",
                     height: "65px",
-                    padding: "20px",
+                    padding: "30px",
                     fontSize: "30px",
                     width: "700px",
-                    marginLeft: "1200px",
-                    marginTop: "-490px",
+                    marginLeft: "1150px",
+                    marginTop: "-560px",
                     fontFamily: "Prata",
-                    borderRadius: "10px",
+                    borderRadius: "30px",
                     border: "1px",
                     backgroundColor: "#D3D3D3",
                 }}
             />
 
-            <img
-                style={{                  //password icon
-                    position: "absolute",
-                    top: "609px",
-                    left: "1107px",
-                    width: "110px",
-                    height: "110px",
-                    objectFit: "cover",
-
-                }}
-                alt=""
-                src={lock}
-
-            />
-            <img                       // ตาเปิดปิด email
+            <input                      //text password confirm
+                type="text"
+                placeholder="Confirm password *"
                 style={{
                     position: "absolute",
-                    top: "640px",
-                    left: "1830px",
-                    width: "40px",
-                    height: "40px",
-                    objectFit: "cover",
-                    cursor: "pointer",
-                }}
-                alt=""
-                src={hide}
-
-            />
-
-            <img
-                style={{                 // ตาเปิดปิด  password
-                    position: "absolute",
-                    top: "505px",
-                    left: "1830px",
-                    width: "40px",
-                    height: "40px",
-                    objectFit: "cover",
-                    cursor: "pointer",
-                }}
-                alt=""
-                src={hide}
-
-            />
-
-            <div
-                style={{              // Forgot the password?
-                    position: "absolute",
-                    top: "710px",
-                    left: "1649px",
-                    color: "red",
-                    width: "270px",
-                    cursor: "pointer",
-                    fontFamily: "Prata",
+                    height: "65px",
+                    padding: "30px",
                     fontSize: "30px",
-
+                    width: "700px",
+                    marginLeft: "1150px",
+                    marginTop: "-435px",
+                    fontFamily: "Prata",
+                    borderRadius: "30px",
+                    border: "1px",
+                    backgroundColor: "#D3D3D3",
                 }}
-
-            >
-                Forgot the password?
-            </div>
+            />
 
             <button
                 type='submit'
                 style={{                    //login button
                     backgroundColor: "#2d3d92", // Change background color
-
-
                     color: 'white', // Change text color
                     position: "absolute",
                     height: "75px",
@@ -218,7 +152,7 @@ const Login: FC = () => {
                     fontSize: "30px",
                     width: "150px",
                     marginLeft: "1400px",
-                    marginTop: "-320px",
+                    marginTop: "-315px",
                     fontFamily: "Prata",
                     borderRadius: "15px",
                     border: "1px",
@@ -226,7 +160,7 @@ const Login: FC = () => {
 
                 }}
             >
-                LOGIN
+                SUBMIT
             </button>
 
             <div
@@ -236,7 +170,6 @@ const Login: FC = () => {
                     left: "1239px",
                     color: "black",
                     width: "232px",
-                    cursor: "pointer",
                     fontFamily: "Prata",
                     fontSize: "30px",
 
@@ -254,6 +187,7 @@ const Login: FC = () => {
                     width: "80px",
                     height: "80px",
                     objectFit: "cover",
+                    cursor: 'pointer', // Add pointer cursor
 
                 }}
                 alt=""
@@ -268,6 +202,7 @@ const Login: FC = () => {
                     width: "80px",
                     height: "80px",
                     objectFit: "cover",
+                    cursor: 'pointer', // Add pointer cursor
 
                 }}
                 alt=""
@@ -282,17 +217,18 @@ const Login: FC = () => {
                     width: "80px",
                     height: "80px",
                     objectFit: "cover",
+                    cursor: 'pointer', // Add pointer cursor
 
                 }}
                 alt=""
                 src={twitter}
             />
+
         </div>
+
+
 
     );
 };
 
-
-
-
-export default Login;
+export default Register;
