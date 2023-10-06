@@ -1,4 +1,6 @@
 import { FC, useCallback } from 'react'
+import { Link } from 'react-router-dom';
+
 import jarb from "../assets/jarb icon.png";
 import user1 from "../assets/user (1).png";
 import lock from "../assets/lock.png";
@@ -87,9 +89,10 @@ const Login: FC = () => {
                     fontSize: "30px",
 
                 }}
-
             >
+                <Link to="/register" style={{ textDecoration: 'none', color: 'red' }}>
                 NewUser? Register
+        </Link>
             </div>
 
             <input                 //text email
@@ -202,7 +205,9 @@ const Login: FC = () => {
                 }}
 
             >
+                <Link to="/forgotpassword" style={{ textDecoration: 'none', color: 'red' }}>
                 Forgot the password?
+        </Link>
             </div>
 
             <button

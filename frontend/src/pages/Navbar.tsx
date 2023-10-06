@@ -1,5 +1,6 @@
 import {useCallback} from "react";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 
 import point from "../assets/3point.png";
@@ -136,9 +137,11 @@ function Navbar() {
             height: "50px",
             cursor: "pointer",
           }}
-          onClick={CartClick}
+          
         >
-          ตะกร้าสินค้า
+          <Link to="/cart" style={{ textDecoration: "none", color: "#fff" }}>
+        ตะกร้าสินค้า
+      </Link>
         </div>
         <img
           style={{
@@ -295,6 +298,8 @@ function Navbar() {
           alt=""
           src={jarb}
           onClick={JarbClick}
+
+          
         />
       </div>
     

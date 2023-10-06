@@ -1,4 +1,5 @@
 import { FC, useCallback } from 'react'
+import { Link } from 'react-router-dom';
 import forgot from "../assets/forgot.png";
 
 
@@ -46,7 +47,9 @@ const ForgotPassword: FC = () => {
                     }}
 
                 >
+                    <Link to="/" style={{ textDecoration: 'none', color: 'red' }}>
                     Login Account
+                    </Link>
                 </div>
 
                 <div
@@ -62,7 +65,9 @@ const ForgotPassword: FC = () => {
 
                     }}
                 >
+                    <Link to="/" style={{ textDecoration: 'none', color: 'red' }}>
                     Back
+                    </Link>
                 </div>
                 <img
                     style={{                    //Forgot icon

@@ -1,4 +1,6 @@
 import { FC, useCallback } from 'react'
+import { Link } from 'react-router-dom';
+
 import jarb from "../assets/jarb icon.png";
 import register from "../assets/register.png";
 import facebook from "../assets/facebook.png";
@@ -86,7 +88,10 @@ const Register: FC = () => {
                 }}
 
             >
+                <Link to="/" style={{ textDecoration: 'none', color: 'red' }}>
+                
                 Login Account
+        </Link>
             </div>
             <input                 //text email
                 type="text"
