@@ -1,9 +1,13 @@
-import { FC, useCallback } from 'react'
+import { FC } from 'react'
+import React, { useState, ChangeEvent } from 'react';
 import { Link } from 'react-router-dom';
+import hide from "../assets/hide.png";
 
 import jarb from "../assets/jarb icon.png";
 import register from "../assets/register.png";
 const Register: FC = () => {
+    const [passwordVisible, setPasswordVisible] = useState(false);
+    const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
 
     return (
         // logo and background jarb
@@ -54,7 +58,7 @@ const Register: FC = () => {
                 src={register}
             />
 
-            <           div
+            <div
                 style={{                //login
                     position: "absolute",
                     top: "290px",
@@ -107,7 +111,7 @@ const Register: FC = () => {
                 }}
             />
             <input                      //text password
-                type="text"
+                type={passwordVisible ? 'text' : 'password'}
                 placeholder="Password *"
                 style={{
                     position: "absolute",
@@ -125,7 +129,7 @@ const Register: FC = () => {
             />
 
             <input                      //text password confirm
-                type="text"
+                type={confirmPasswordVisible ? 'text' : 'password'}
                 placeholder="Confirm password *"
                 style={{
                     position: "absolute",
@@ -141,7 +145,34 @@ const Register: FC = () => {
                     backgroundColor: "#D3D3D3",
                 }}
             />
-
+            <img
+                style={{                 // ตาเปิดปิด  password
+                    position: "absolute",
+                    top: "575px",
+                    left: "1800px",
+                    width: "40px",
+                    height: "40px",
+                    objectFit: "cover",
+                    cursor: "pointer",
+                }}
+                alt=""
+                src={hide}
+                onClick={() => setPasswordVisible(!passwordVisible)}
+            />
+            <img
+                style={{                 // ตาเปิดปิด  confirm password
+                    position: "absolute",
+                    top: "700px",
+                    left: "1800px",
+                    width: "40px",
+                    height: "40px",
+                    objectFit: "cover",
+                    cursor: "pointer",
+                }}
+                alt=""
+                src={hide}
+                onClick={() => setConfirmPasswordVisible(!confirmPasswordVisible)}
+            />
             <button
                 type='submit'
                 style={{                    //login button
@@ -157,15 +188,11 @@ const Register: FC = () => {
                     fontFamily: "Prata",
                     borderRadius: "15px",
                     border: "1px",
-
-
+                    cursor: "pointer",
                 }}
-            >
+            >  
                 SUBMIT
             </button>
-
-            
-
         </div>
 
 
