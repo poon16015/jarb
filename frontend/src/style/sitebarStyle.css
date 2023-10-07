@@ -1,0 +1,29 @@
+.sitebar{
+    height: 100%;
+    width: 200px;
+    position: absolute;
+    z-index: 1;
+    top: 210px;
+    left: 0;
+    background-color: #D9D9D9;
+    overflow-x: hidden;
+}
+.sitebar a{
+    display: block;
+    color: rgb(1, 1, 1);
+    font-weight: bold;
+    text-align: left;
+    padding: 16px;
+    text-decoration: none;
+}
+.sitebar a:hover{
+    background-color: rgb(0, 0, 0);
+    color : red ;
+}
+.head{
+    text-align: center;
+    font-weight: 100;
+   
+    background-color: rgb(168, 171, 172);
+
+}
