@@ -172,6 +172,27 @@ const Register: FC = () => {
                     backgroundColor: "#D3D3D3",
                 }}
             />
+                <button
+                    type='submit'
+                    style={{                    //login button
+                        backgroundColor: "#2d3d92", // Change background color
+                        color: 'white', // Change text color
+                        position: "absolute",
+                        height: "75px",
+                        padding: "10px",
+                        fontSize: "30px",
+                        width: "150px",
+                        marginLeft: "1400px",
+                        marginTop: "-315px",
+                        fontFamily: "Prata",
+                        borderRadius: "15px",
+                        border: "1px",
+                        cursor: "pointer",
+                    }}
+                >  
+                    SUBMIT
+                </button>
+                </form>
             <img
                 style={{                 // ตาเปิดปิด  password
                     position: "absolute",
@@ -200,31 +221,7 @@ const Register: FC = () => {
                 src={hide}
                 onClick={() => setConfirmPasswordVisible(!confirmPasswordVisible)}
             />
-            <button
-                type='submit'
-                style={{                    //login button
-                    backgroundColor: "#2d3d92", // Change background color
-                    color: 'white', // Change text color
-                    position: "absolute",
-                    height: "75px",
-                    padding: "10px",
-                    fontSize: "30px",
-                    width: "150px",
-                    marginLeft: "1400px",
-                    marginTop: "-315px",
-                    fontFamily: "Prata",
-                    borderRadius: "15px",
-                    border: "1px",
-                    cursor: "pointer",
-                }}
-            >  
-                SUBMIT
-            </button>
-            </form>
         </div>
-
-
-
     );
 };
 
