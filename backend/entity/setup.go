@@ -19,6 +19,7 @@ func SetupDatabase() {
 
   database.AutoMigrate(
     &ProductType{},
+    &Account{},
     &Member{},
     &Address{},
     &Product{},

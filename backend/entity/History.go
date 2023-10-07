@@ -13,4 +13,6 @@ type History struct {
 
   MemberID *uint
   Member Member `gorm:"foreignKey:MemberID"`
+  PaymentID *uint 
+	Payment   Payment `gorm:"foreignKey:PaymentID"`
 }

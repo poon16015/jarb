@@ -3,10 +3,6 @@ import { Link } from 'react-router-dom';
 
 import jarb from "../assets/jarb icon.png";
 import register from "../assets/register.png";
-import facebook from "../assets/facebook.png";
-import google from "../assets/facebook (2).png";
-import twitter from "../assets/twitter.png";
-
 const Register: FC = () => {
 
     return (
@@ -168,66 +164,7 @@ const Register: FC = () => {
                 SUBMIT
             </button>
 
-            <div
-                style={{              // login with contact
-                    position: "absolute",
-                    top: "990px",
-                    left: "1239px",
-                    color: "black",
-                    width: "232px",
-                    fontFamily: "Prata",
-                    fontSize: "30px",
-
-                }}
-
-            >
-                Login with
-            </div>
-
-            <img
-                style={{                  //facebook icon
-                    position: "absolute",
-                    top: "960px",
-                    left: "1407px",
-                    width: "80px",
-                    height: "80px",
-                    objectFit: "cover",
-                    cursor: 'pointer', // Add pointer cursor
-
-                }}
-                alt=""
-                src={facebook}
-            />
-
-            <img
-                style={{
-                    position: "absolute",    //google icon
-                    top: "960px",
-                    left: "1517px",
-                    width: "80px",
-                    height: "80px",
-                    objectFit: "cover",
-                    cursor: 'pointer', // Add pointer cursor
-
-                }}
-                alt=""
-                src={google}
-            />
-
-            <img
-                style={{                  //twitter icon
-                    position: "absolute",
-                    top: "960px",
-                    left: "1627px",
-                    width: "80px",
-                    height: "80px",
-                    objectFit: "cover",
-                    cursor: 'pointer', // Add pointer cursor
-
-                }}
-                alt=""
-                src={twitter}
-            />
+            
 
         </div>
 

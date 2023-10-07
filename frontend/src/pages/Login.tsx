@@ -1,4 +1,4 @@
-import { FC, useCallback } from 'react'
+import { FC, useState } from 'react'
 import { Link } from 'react-router-dom';
 
 import jarb from "../assets/jarb icon.png";
@@ -6,12 +6,14 @@ import user1 from "../assets/user (1).png";
 import lock from "../assets/lock.png";
 import email from "../assets/email.png";
 import hide from "../assets/hide.png";
-import facebook from "../assets/facebook.png";
-import google from "../assets/facebook (2).png";
-import twitter from "../assets/twitter.png";
+
 
 const Login: FC = () => {
+    const [showPassword, setShowPassword] = useState(false);
 
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
     return (
         // logo and background jarb
         <div className='logo'>
@@ -117,8 +119,8 @@ const Login: FC = () => {
             <img
                 style={{              //email icon
                     position: "absolute",
-                    top: "471px",
-                    left: "1107px",
+                    top: "430px",
+                    left: "1080px",
                     width: "110px",
                     height: "110px",
                     objectFit: "cover",
@@ -130,7 +132,7 @@ const Login: FC = () => {
             />
 
             <input                      //text password
-                type="text"
+                type={showPassword ? 'text' : 'password'}
                 placeholder="password*"
                 style={{
                     position: "absolute",
@@ -150,8 +152,8 @@ const Login: FC = () => {
             <img
                 style={{                  //password icon
                     position: "absolute",
-                    top: "609px",
-                    left: "1107px",
+                    top: "570px",
+                    left: "1080px",
                     width: "110px",
                     height: "110px",
                     objectFit: "cover",
@@ -159,27 +161,15 @@ const Login: FC = () => {
                 }}
                 alt=""
                 src={lock}
+                
 
             />
-            <img                       // ตาเปิดปิด email
-                style={{
-                    position: "absolute",
-                    top: "640px",
-                    left: "1830px",
-                    width: "40px",
-                    height: "40px",
-                    objectFit: "cover",
-                    cursor: "pointer",
-                }}
-                alt=""
-                src={hide}
 
-            />
 
             <img
                 style={{                 // ตาเปิดปิด  password
                     position: "absolute",
-                    top: "505px",
+                    top: "605px",
                     left: "1830px",
                     width: "40px",
                     height: "40px",
@@ -188,28 +178,9 @@ const Login: FC = () => {
                 }}
                 alt=""
                 src={hide}
+                onClick={togglePasswordVisibility}
 
             />
-
-            <div
-                style={{              // Forgot the password?
-                    position: "absolute",
-                    top: "710px",
-                    left: "1649px",
-                    color: "red",
-                    width: "270px",
-                    cursor: "pointer",
-                    fontFamily: "Prata",
-                    fontSize: "30px",
-
-                }}
-
-            >
-                <Link to="/forgotpassword" style={{ textDecoration: 'none', color: 'red' }}>
-                Forgot the password?
-        </Link>
-            </div>
-
             <button
                 type='submit'
                 style={{                    //login button
@@ -234,64 +205,6 @@ const Login: FC = () => {
                 LOGIN
             </button>
 
-            <div
-                style={{              // login with contact
-                    position: "absolute",
-                    top: "990px",
-                    left: "1239px",
-                    color: "black",
-                    width: "232px",
-                    cursor: "pointer",
-                    fontFamily: "Prata",
-                    fontSize: "30px",
-
-                }}
-
-            >
-                Login with
-            </div>
-
-            <img
-                style={{                  //facebook icon
-                    position: "absolute",
-                    top: "960px",
-                    left: "1407px",
-                    width: "80px",
-                    height: "80px",
-                    objectFit: "cover",
-
-                }}
-                alt=""
-                src={facebook}
-            />
-
-            <img
-                style={{
-                    position: "absolute",    //google icon
-                    top: "960px",
-                    left: "1517px",
-                    width: "80px",
-                    height: "80px",
-                    objectFit: "cover",
-
-                }}
-                alt=""
-                src={google}
-            />
-
-            <img
-                style={{                  //twitter icon
-                    position: "absolute",
-                    top: "960px",
-                    left: "1627px",
-                    width: "80px",
-                    height: "80px",
-                    objectFit: "cover",
-
-                }}
-                alt=""
-                src={twitter}
-            />
         </div>
 
     );

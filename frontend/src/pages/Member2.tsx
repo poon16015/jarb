@@ -1,6 +1,7 @@
 import Navbar from "./Navbar";
 import log_out from "../assets/log-out.png";
 import user3 from "../assets/user (3).png";
+import { Link } from 'react-router-dom';
 
 
 function Member2() {
@@ -10,74 +11,99 @@ function Member2() {
 
 
     return (
-        <div
-        > 
+        <div> 
         <Navbar/>
-  
-            <div
-                style={{                //ข้อมูลส่วนตัว
+        <div
+                style={{                //  บัญชีของฉัน
                     position: "absolute",
-                    top: "450px",
+                    top: "350px",
                     left: "35px",
                     color: "black",
                     display: "inline-block",
                     width: "495px",
                     height: "75px",
-                    fontSize: "40px",
+                    fontSize: "45px",
                     fontFamily: "Inter",
+                    fontWeight: "bold", 
                 }}
             >
-                ข้อมูลส่วนตัว
+                บัญชีของฉัน
             </div>
-
             <div
-                style={{                //แก้ไขข้อมูลส่วนตัว
-                    position: "absolute",
-                    top: "550px",
-                    left: "35px",
-                    color: "black",
-                    display: "inline-block",
-                    width: "495px",
-                    height: "75px",
-                    fontSize: "40px",
-                    fontFamily: "Inter",
-                }}
-            >
-                แก้ไขข้อมูลส่วนตัว
-            </div>
-
+            style={{
+              position: "absolute",
+              top: "450px",
+              left: "35px",
+              backgroundColor: "White",
+              width: "310px",
+              height: "75px",
+              color: "#fff",
+              cursor: "pointer",
+              lineHeight: "1.8",
+              textAlign: "left",
+              fontSize: "40px",
+              fontFamily: "Inter",
+            }}
+        >
+            <Link to="/member1" style={{ textDecoration: 'none', color: 'black', width: '100%', height: '100%' }}>
+                  ข้อมูลส่วนตัว
+            </Link>
+        </div>
             <div
-                style={{                //login
-                    position: "absolute",
-                    top: "650px",
-                    left: "35px",
-                    color: "black",
-                    display: "inline-block",
-                    width: "495px",
-                    height: "75px",
-                    fontSize: "40px",
-                    fontFamily: "Inter",
-                }}
-            >
-                ประวัติการสั่งซื้อ
-            </div>
+            style={{
+              position: "absolute",
+              top: "550px",
+              left: "35px",
+              backgroundColor: "Gray",
+              width: "310px",
+              height: "75px",
+              cursor: "pointer",
+              lineHeight: "1.8",
+              textAlign: "left",
+              fontSize: "40px",
+              fontFamily: "Inter",
+            }}
+        >
+            <Link to="/member2" style={{ textDecoration: 'none', color: 'black', width: '100%', height: '100%' }}>
+            แก้ไขข้อมูลส่วนตัว
+            </Link>
+        </div>
+            <div
+            style={{
+              position: "absolute",
+              top: "650px",
+              left: "35px",
+              backgroundColor: "White",
+              width: "310px",
+              height: "75px",
+              cursor: "pointer",
+              lineHeight: "1.8",
+              textAlign: "left",
+              fontSize: "40px",
+              fontFamily: "Inter",
+            }}
+        >
+            <Link to="/history" style={{ textDecoration: 'none', color: 'black', width: '100%', height: '100%' }}>
+            ประวัติการสั่งซื้อ
+            </Link>
+        </div>
 
             <div
                 style={{                //login
                     position: "absolute",
                     top: "750px",
                     left: "35px",
-                    color: "black",
+                    color: "red",
                     display: "inline-block",
                     width: "495px",
                     height: "75px",
-                    fontSize: "40px",
+                    fontSize: "20px",
                     fontFamily: "Inter",
                 }}
             >
                 ลบบัญชี
             </div>
-
+            <Link to="/member1">
             <img
                 style={{
                     position: "absolute",    //log out icon
@@ -91,22 +117,9 @@ function Member2() {
                 alt=""
                 src={log_out}
             />
+            </Link>
 
-            <div
-                style={{                //log out
-                    position: "absolute",
-                    top: "980px",
-                    left: "114px",
-                    color: "red",
-                    display: "inline-block",
-                    width: "495px",
-                    height: "75px",
-                    fontSize: "25px",
-                    fontFamily: "Inter",
-                }}
-            >
-                Log out
-            </div>
+            
 
             <div
                 style={{                //line
@@ -296,29 +309,27 @@ function Member2() {
                 บันทึกข้อมูล
             </button>
 
-            <button
-                type='button'
-
-                style={{
-                    position: "absolute",
-                    marginRight: '100px',
-                    backgroundColor: 'red', // Change background color
-                    color: 'white', // Change text color
-                    border: '2px', // Remove border
-                    padding: '20px 20px', // Adjust padding
-                    cursor: 'pointer', // Add pointer cursor
-                    marginLeft: "55px",
-                    height: '70px',
-                    width: '230px',
-                    top: '960px',
-                    fontSize: '28px',
-                    borderRadius: "10px",
-                    marginTop : "6px",
-
-                }}
-            >
-                ยกเลิกการแก้ไข
-            </button>
+            
+            <div
+            style={{
+              position: "absolute",
+              top: "980px",
+              left: "60px",
+              backgroundColor: "white",
+              borderRadius: "10px",
+              width: "200px",
+              height: "30px",
+              cursor: "pointer",
+              lineHeight: "1.8",
+              textAlign: "center",
+              fontSize: "25px",
+              fontFamily: "Inter",
+            }}
+        >
+            <Link to="/member1" style={{ textDecoration: 'none', color: 'red', width: '100%', height: '100%' }}>
+            ยกเลิกการแก้ไข
+            </Link>
+        </div>
 
 
 
