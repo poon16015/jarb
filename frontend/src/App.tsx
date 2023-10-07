@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import './App.css';
 
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -14,6 +15,7 @@ import History from './pages/History';
 function App() {
   return (
     <Router>
+      <div className="App"></div>
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
