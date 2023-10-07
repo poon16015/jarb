@@ -8,6 +8,9 @@ import Cart from './pages/Cart';
 import Address from './pages/Address';
 import AddAddress from './pages/AddAddress';
 import Product from './pages/Product1';
+import Member1 from './pages/Member1';
+import Member2 from './pages/Member2';
+import Member3 from './pages/Member3';
 
 function App() {
   return (
@@ -20,6 +23,9 @@ function App() {
         <Route path="/address" element={<Address />} />
         <Route path="/addaddress" element={<AddAddress />} />
         <Route path="/product" element={<Product />} />
+        <Route path="/member1" element={<Member1 />} />
+        <Route path="/member2" element={<Member2 />} />
+        <Route path="/member3" element={<Member3 />} />
 
 
       </Routes>
