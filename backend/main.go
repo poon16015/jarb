@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/poon16015/Jarb/entity"
+	"github.com/poon16015/jarb/entity"
 	"github.com/gin-gonic/gin"
 )
 
