@@ -1,7 +1,9 @@
 import { useCallback } from "react";
+import { Link } from 'react-router-dom';
 
 import twohr from "../assets/2hr.png";
 import undertab from "../assets/undertab.png";
+import Navbar from "./Navbar";
 
 function Cart() {
     const ProductClick = useCallback(() => {
@@ -21,6 +23,7 @@ function Cart() {
         fontFamily: "Inter",
       }}
     >
+      <Navbar/>
       <div
         style={{
           position: "absolute",
@@ -144,16 +147,16 @@ function Cart() {
         <div
           style={{
             position: "absolute",
-            top: "144px",
-            left: "15px",
+            top: "121px",
+            left: "24px",
             fontSize: "24px",
           }}
         >{`รวมทั้งหมด (บาท)   `}</div>
         <div
           style={{
             position: "absolute",
-            top: "129.5px",
-            left: "10.5px",
+            top: "111.5px",
+            left: "10.49px",
             borderTop: "1px solid #000",
             boxSizing: "border-box",
             width: "373.02px",
@@ -163,7 +166,7 @@ function Cart() {
         <div
           style={{
             position: "absolute",
-            top: "191.5px",
+            top: "158.5px",
             left: "10.5px",
             borderTop: "1px solid #000",
             boxSizing: "border-box",
@@ -185,77 +188,51 @@ function Cart() {
         />
       </div>
       <div
-        style={{
-          position: "absolute",
-          top: "876px",
-          left: "750px",
-          width: "203px",
-          height: "56px",
-          color: "#fff",
-        }}
-      >
-        <div
-          style={{
-            position: "absolute",
-            height: "100%",
-            width: "100%",
-            top: "0%",
-            right: "0%",
-            bottom: "0%",
-            left: "0%",
-            backgroundColor: "#2d3d92",
-            cursor: "pointer",
-          }}
-          onClick={ProductClick}
-        />
-        <b
-          style={{
-            position: "absolute",
-            height: "58.93%",
-            width: "74.38%",
-            top: "21.43%",
-            left: "12.32%",
-            display: "inline-block",
-            cursor: "pointer",
-          }}
-          onClick={ProductClick}
-        >{`<    เลือกสินค้า`}</b>
-      </div>
+            style={{
+              position: "absolute",
+              top: "876px",
+              left: "750px",
+              width: "203px",
+              height: "56px",
+              color: "#fff",
+              backgroundColor: "#2d3d92",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "flex-end",
+              cursor: "pointer",
+              fontSize: "23px",  
+              fontWeight: "bold",  
+              lineHeight: "2.4",
+              textAlign: "center",
+            }}
+        >
+            <Link to="/address" style={{ textDecoration: 'none', color: 'white', width: '100%', height: '100%' }}>
+                {`<    เลือกสินค้า`}
+            </Link>
+        </div>
       <div
-        style={{
-          position: "absolute",
-          top: "876px",
-          left: "974px",
-          width: "203px",
-          height: "56px",
-          color: "#fff",
-        }}
-      >
-        <div
-          style={{
-            position: "absolute",
-            top: "0px",
-            left: "0px",
-            backgroundColor: "#2d3d92",
-            width: "203px",
-            height: "56px",
-            cursor: "pointer",
-          }}
-          onClick={AddressClick}
-        />
-        <b
-          style={{
-            position: "absolute",
-            top: "12px",
-            left: "35px",
-            display: "inline-block",
-            width: "170px",
-            height: "33px",
-            cursor: "pointer",
-          }}
-          onClick={AddressClick}
-        >{`ที่อยู่จัดส่ง      >`}</b>
-      </div>
+            style={{
+                position: "absolute",
+                top: "876px",
+                left: "974px",
+                width: "203px",
+                height: "56px",
+                color: "#fff",
+                backgroundColor: "#2d3d92",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "flex-end",
+                cursor: "pointer",
+                fontSize: "23px",  
+                fontWeight: "bold",  
+                lineHeight: "2.4",
+                textAlign: "center",
+            }}
+        >
+            <Link to="/address" style={{ textDecoration: 'none', color: 'white', width: '100%', height: '100%' }}>
+                {'ที่อยู่จัดส่ง      >'}
+            </Link>
+        </div>
       <img
         style={{
           position: "absolute",

@@ -1,5 +1,6 @@
 import {useCallback} from "react";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 
 import point from "../assets/3point.png";
@@ -10,30 +11,9 @@ import jarb_wb from "../assets/jarb icon(wb).png";
 import glass from "../assets/magnifying glass.png";
 
 function Navbar() {
-    const JarbClick = useCallback(() => {
-        //  sync "product" to the project
-      }, []);
-    
-      const CartClick = useCallback(() => {
-        //  sync "cart" to the project
-      }, []);
-    
-      const MemberClick = useCallback(() => {
-        //  sync "Member " to the project
-      }, []);
-    
-      const CustomPcClick = useCallback(() => {
-        //  sync "customPc2" to the project
-      }, []);
-    
       const ContactClick = useCallback(() => {
         window.open("https://www.youtube.com/watch?v=xvFZjo5PgG0");
       }, []);
-
-      const ProductClick = useCallback(() => {
-        //  sync "product" to the project
-      }, []);
-
       const [searchTerm, setSearchTerm] = useState("");
 
       const SearchInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -125,21 +105,6 @@ function Navbar() {
           alt=""
           src={cart}
         />
-        <div
-          style={{
-            position: "absolute",
-            top: "101px",
-            left: "1490px",
-            color: "#fff",
-            display: "inline-block",
-            width: "160px",
-            height: "50px",
-            cursor: "pointer",
-          }}
-          onClick={CartClick}
-        >
-          ตะกร้าสินค้า
-        </div>
         <img
           style={{
             position: "absolute",
@@ -164,84 +129,6 @@ function Navbar() {
           alt=""
           src={account_icon}
         />
-        <div
-          style={{
-            position: "absolute",
-            top: "101px",
-            left: "1719px",
-            color: "#fff",
-            display: "inline-block",
-            width: "182px",
-            height: "50px",
-            cursor: "pointer",
-          }}
-          onClick={MemberClick}
-        >
-          บัญชีของฉัน
-        </div>
-        <div
-          style={{
-            position: "absolute",
-            top: "216px",
-            left: "361px",
-            width: "130px",
-            height: "33px",
-            cursor: "pointer",
-          }}
-          onClick={ProductClick}
-        >
-          <div
-            style={{
-              position: "absolute",
-              top: "3px",
-              left: "0px",
-              borderRadius: "10px",
-              backgroundColor: "#fcb117",
-              width: "130px",
-              height: "30px",
-              
-            }}
-            
-          />
-          <div
-            style={{
-              position: "absolute",
-              top: "0px",
-              left: "26px",
-              display: "inline-block",
-              width: "71px",
-              height: "29.25px",
-            }}
-          >
-            สินค้า
-          </div>
-        </div>
-        <div
-          style={{
-            position: "absolute",
-            top: "215px",
-            left: "510px",
-            width: "150px",
-            height: "39px",
-            cursor: "pointer",
-          }}
-          onClick={CustomPcClick}
-        >
-          <div
-            style={{
-              position: "absolute",
-              top: "4px",
-              left: "0px",
-              borderRadius: "10px",
-              backgroundColor: "#fbb017",
-              width: "150px",
-              height: "30px",
-            }}
-          />
-          <div style={{ position: "absolute", top: "0px", left: "23px" }}>
-            จัดสเปค
-          </div>
-        </div>
         <div
           style={{
             position: "absolute",
@@ -282,6 +169,7 @@ function Navbar() {
             src={jarb_wb}
           />
         </div>
+        <Link to="/cart">
         <img
           style={{
             position: "absolute",
@@ -294,8 +182,98 @@ function Navbar() {
           }}
           alt=""
           src={jarb}
-          onClick={JarbClick}
         />
+        </Link>
+        <div
+            style={{
+              position: "absolute",
+              top: "101px",
+              left: "1440px",
+              backgroundColor: "transparent",
+              width: "200px",
+              height: "50px",
+              color: "#fff",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "flex-end",
+              cursor: "pointer",
+              fontSize: "30px",  
+              lineHeight: "1.4",
+              textAlign: "right",
+            }}
+        >
+            <Link to="/cart" style={{ textDecoration: 'none', color: 'white', width: '100%', height: '100%' }}>
+                  ตะกร้าสินค้า
+            </Link>
+        </div>
+        <div
+            style={{
+              position: "absolute",
+              top: "101px",
+              left: "1670px",
+              backgroundColor: "transparent",
+              width: "210px",
+              height: "50px",
+              color: "#fff",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "flex-end",
+              cursor: "pointer",
+              fontSize: "30px",  
+              lineHeight: "1.4",
+              textAlign: "right",
+            }}
+        >
+            <Link to="/cart" style={{ textDecoration: 'none', color: 'white', width: '100%', height: '100%' }}>
+                  บัญชีของฉัน
+            </Link>
+        </div>
+        <div
+            style={{
+              position: "absolute",
+              top: "219px",
+              left: "510px",
+              backgroundColor: "#fbb017",
+              borderRadius: "10px",
+              width: "150px",
+              height: "30px",
+              color: "#fff",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "flex-end",
+              cursor: "pointer",
+              fontSize: "30px",  
+              lineHeight: "1.1",
+              textAlign: "center",
+            }}
+        >
+            <Link to="/cart" style={{ textDecoration: 'none', color: 'black', width: '100%', height: '100%' }}>
+                  จัดสเปค
+            </Link>
+        </div>
+        <div
+            style={{
+              position: "absolute",
+              top: "219px",
+              left: "361px",
+              backgroundColor: "#fbb017",
+              borderRadius: "10px",
+              width: "130px",
+              height: "30px",
+              color: "#fff",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "flex-end",
+              cursor: "pointer",
+              fontSize: "30px",  
+              lineHeight: "1.1",
+              textAlign: "center",
+            }}
+        >
+            <Link to="/cart" style={{ textDecoration: 'none', color: 'black', width: '100%', height: '100%' }}>
+                  สินค้า
+            </Link>
+        </div>
       </div>
     
   );
