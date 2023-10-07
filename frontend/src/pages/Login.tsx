@@ -185,8 +185,6 @@ const Login: FC = () => {
                 type='submit'
                 style={{                    //login button
                     backgroundColor: "#2d3d92", // Change background color
-
-
                     color: 'white', // Change text color
                     position: "absolute",
                     height: "75px",
