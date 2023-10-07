@@ -6,14 +6,6 @@ import undertab from "../assets/undertab.png";
 import Navbar from "./Navbar";
 
 function Cart() {
-    const ProductClick = useCallback(() => {
-        //sync "product" to the project
-      }, []);
-    
-      const AddressClick = useCallback(() => {
-        //sync "address" to the project
-      }, []);
-
     return (
         <div
       style={{
@@ -206,7 +198,7 @@ function Cart() {
               textAlign: "center",
             }}
         >
-            <Link to="/address" style={{ textDecoration: 'none', color: 'white', width: '100%', height: '100%' }}>
+            <Link to="/product" style={{ textDecoration: 'none', color: 'white', width: '100%', height: '100%' }}>
                 {`<    เลือกสินค้า`}
             </Link>
         </div>

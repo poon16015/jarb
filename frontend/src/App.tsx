@@ -7,6 +7,7 @@ import ForgotPassword from './pages/ForgotPassword';
 import Cart from './pages/Cart';
 import Address from './pages/Address';
 import AddAddress from './pages/AddAddress';
+import Product from './pages/Product1';
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/address" element={<Address />} />
         <Route path="/addaddress" element={<AddAddress />} />
+        <Route path="/product" element={<Product />} />
+
 
       </Routes>
     </Router>
