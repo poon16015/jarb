@@ -4,7 +4,6 @@ import "gorm.io/gorm"
 
 type Payment struct {
   gorm.Model
-  Total  int
   State  int
 
   AddressID *uint

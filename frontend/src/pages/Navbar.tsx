@@ -224,7 +224,7 @@ function Navbar() {
               textAlign: "right",
             }}
         >
-            <Link to="/cart" style={{ textDecoration: 'none', color: 'white', width: '100%', height: '100%' }}>
+            <Link to="/member1" style={{ textDecoration: 'none', color: 'white', width: '100%', height: '100%' }}>
                   บัญชีของฉัน
             </Link>
         </div>
