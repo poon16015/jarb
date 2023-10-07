@@ -1,6 +1,4 @@
-import { useCallback } from "react";
 import { Link } from 'react-router-dom';
-
 import twohr from "../assets/2hr.png";
 import undertab from "../assets/undertab.png";
 import Navbar from "./Navbar";
@@ -186,11 +184,7 @@ function Cart() {
               left: "750px",
               width: "203px",
               height: "56px",
-              color: "#fff",
               backgroundColor: "#2d3d92",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "flex-end",
               cursor: "pointer",
               fontSize: "23px",  
               fontWeight: "bold",  
@@ -209,11 +203,7 @@ function Cart() {
                 left: "974px",
                 width: "203px",
                 height: "56px",
-                color: "#fff",
                 backgroundColor: "#2d3d92",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "flex-end",
                 cursor: "pointer",
                 fontSize: "23px",  
                 fontWeight: "bold",  
