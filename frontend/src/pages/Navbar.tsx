@@ -83,7 +83,7 @@ function Navbar() {
         style={{
           position: "absolute",
           top: "92px",
-          left: "1366px",
+          left: "1355px",
           width: "53px",
           height: "52px",
           objectFit: "cover",
@@ -169,7 +169,7 @@ function Navbar() {
             src={jarb_wb}
           />
         </div>
-        <Link to="/cart">
+        <Link to="/product">
         <img
           style={{
             position: "absolute",
@@ -270,7 +270,7 @@ function Navbar() {
               textAlign: "center",
             }}
         >
-            <Link to="/cart" style={{ textDecoration: 'none', color: 'black', width: '100%', height: '100%' }}>
+            <Link to="/product" style={{ textDecoration: 'none', color: 'black', width: '100%', height: '100%' }}>
                   สินค้า
             </Link>
         </div>

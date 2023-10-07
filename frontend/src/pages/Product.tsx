@@ -1,7 +1,7 @@
 import React from 'react';
 import product1 from '../assets/laptop.webp';
 import "../style/productStyle.css"
-
+import Sitebar from './Sitebar';
 
 function Product() {
   return (
@@ -304,7 +304,7 @@ function Product() {
                   </div>       
           </div>
         </div>      
-      </div>   
+      </div>
   );
 }
 

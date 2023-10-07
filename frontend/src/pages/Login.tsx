@@ -20,8 +20,8 @@ const Login: FC = () => {
                     top: "0px",
                     left: "0px",
                     backgroundColor: "#2d3d92",
-                    width: "990px",
-                    height: "1120px",
+                    width: "1980px",
+                    height: "1080px",
                 }}
             />
             <div
