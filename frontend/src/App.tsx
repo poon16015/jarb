@@ -11,6 +11,7 @@ import Product from './pages/Product1';
 import Member1 from './pages/Member1';
 import Member2 from './pages/Member2';
 import Member3 from './pages/Member3';
+import History from './pages/History';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/member1" element={<Member1 />} />
         <Route path="/member2" element={<Member2 />} />
         <Route path="/member3" element={<Member3 />} />
+        <Route path="/history" element={<History />} />
 
 
       </Routes>
