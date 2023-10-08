@@ -6,8 +6,9 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Cart from './pages/Cart';
 import Address from './pages/Address';
+import CustomPC from './pages/CustomPC';
+import Product from './pages/Product';
 import AddAddress from './pages/AddAddress';
-import Product from './pages/Product1';
 import Member1 from './pages/Member1';
 import Member2 from './pages/Member2';
 import History from './pages/History';
@@ -26,6 +27,7 @@ function App() {
         <Route path="/member1" element={<Member1 />} />
         <Route path="/member2" element={<Member2 />} />
         <Route path="/history" element={<History />} />
+        <Route path="/customPC" element={<CustomPC />} />
 
 
       </Routes>
