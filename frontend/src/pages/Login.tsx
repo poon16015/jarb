@@ -16,8 +16,8 @@ const Login: FC = () => {
         setShowPassword(!showPassword);
     };
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [email] = useState('');
+    const [password] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
     const handleLogin = async () => {

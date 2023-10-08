@@ -14,6 +14,8 @@ func main() {
 	
 	//register
 	r.POST("/register", controller.Register)
+	//login
+	r.POST("/login", controller.Login)
 	
 	
 	r.Run()

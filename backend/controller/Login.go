@@ -22,5 +22,10 @@ func Login(c *gin.Context) {
 
 func isValidUser(email, password string) bool {
 	
-	return false
+	var user entity.Account
+	result := entity.DB().Where("email = ? AND password = ?", email, password).First(&user)
+	if result.Error != nil || result.RowsAffected == 0 {
+		return false
+	}
+	return true
 }

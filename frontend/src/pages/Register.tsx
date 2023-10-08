@@ -35,7 +35,7 @@ const Register: FC = () => {
                 navigate('/'); // เปลี่ยนหน้าเมื่อสร้างผู้ใช้เรียบร้อย
               } else {
                 // Error 
-                setError(response.message); // แสดงข้อความข้อผิดพลาด
+                setError('Email is already registered'); // แสดงข้อความข้อผิดพลาด
               }
         } catch (error) {
             // แสดงข้อผิดพลาดที่เกิดขึ้น
