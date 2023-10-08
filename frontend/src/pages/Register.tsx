@@ -15,10 +15,16 @@ const Register: FC = () => {
     const [user, setUser] = useState<UsersInterface>({ Email: '', Password: '' });
     const [error, setError] = useState<string>('');
     const navigate = useNavigate(); // ใช้ navigate เพื่อเปลี่ยนหน้า
+    const [confirmPassword, setConfirmPassword] = useState<string>('');
+    const isPasswordMatched = user.Password === confirmPassword;
     //ปุ่มsubmit
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         // เรียกใช้ API เพื่อสร้างผู้ใช้ใหม่
+        if (!isPasswordMatched) {
+            setError('Password and confirm password must match');
+            return;
+        }
         try {
             const response = await createUser(user);
             console.log('User created successfully:', response);
@@ -72,9 +78,7 @@ const Register: FC = () => {
                 }}
                 alt=""
                 src={jarb}
-                
                 />
-
             <img
                 style={{                    //user login
                     position: "absolute",
@@ -87,7 +91,6 @@ const Register: FC = () => {
                 alt=""
                 src={register}
             />
-
             <div
                 style={{                //login
                     position: "absolute",
@@ -103,7 +106,6 @@ const Register: FC = () => {
                 >
                 REGISTER
             </div>
-
             <div
                 style={{              // Login Account
                     position: "absolute",
@@ -116,12 +118,10 @@ const Register: FC = () => {
                     fontSize: "30px",
                     
                 }}
-                
                 >
                 <Link to="/" style={{ textDecoration: 'none', color: 'red' }}>
-                
                 Login Account
-        </Link>
+                </Link>
             </div>
             <form onSubmit={handleSubmit}>
             <input                 //text email
@@ -164,10 +164,11 @@ const Register: FC = () => {
                     backgroundColor: "#D3D3D3",
                 }}
                 />
-
             <input                      //text password confirm
                 type={confirmPasswordVisible ? 'text' : 'password'}
                 placeholder="Confirm password *"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
                 required
                 style={{
                     position: "absolute",
@@ -186,22 +187,24 @@ const Register: FC = () => {
                 <button
                     type='submit'
                     style={{                    //login button
-                        backgroundColor: "#2d3d92", // Change background color
-                        color: 'white', // Change text color
+                        backgroundColor: isPasswordMatched ? '#2d3d92' : 'gray', // Change background color
+                        color: isPasswordMatched ? 'white' : 'red', // Change text color
                         position: "absolute",
                         height: "75px",
                         padding: "10px",
-                        fontSize: "30px",
+                        fontSize: isPasswordMatched ? '30px' : '20px',
+                        lineHeight: isPasswordMatched ? '0' : '1',
                         width: "150px",
-                        marginLeft: "1400px",
+                        marginLeft: "1430px",
                         marginTop: "-315px",
                         fontFamily: "Prata",
                         borderRadius: "15px",
                         border: "1px",
-                        cursor: "pointer",
+                        cursor: isPasswordMatched ? 'pointer' : 'not-allowed',
                     }}
+                    disabled={!isPasswordMatched} // ปิดปุ่มถ้า password และ confirm password ไม่ตรงกัน
                     >  
-                    SUBMIT
+                    {isPasswordMatched ? 'SUBMIT' : 'Password must match Confirm Password'} {/* แสดงข้อความตามเงื่อนไข */}
                 </button>
                 {error && <div style={{position: "absolute",width: "500px",top: "750px",left: "1600px",color: "red",fontFamily: "Prata",fontSize: "24px",}}>{error}</div>} {/* แสดงข้อความข้อผิดพลาด */}
                 </form>
@@ -236,5 +239,4 @@ const Register: FC = () => {
         </div>
     );
 };
-
 export default Register;
