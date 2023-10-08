@@ -29,6 +29,8 @@ function Navbar() {
 
   return (
     <div
+      
+    
       style={{
         textAlign: "left",
         fontSize: "32px",

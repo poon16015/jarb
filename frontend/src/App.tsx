@@ -6,12 +6,14 @@ import Register from './pages/Register';
 import ForgotPassword from './pages/ForgotPassword';
 import Cart from './pages/Cart';
 import Address from './pages/Address';
+import CustomPC from './pages/CustomPC';
+
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<CustomPC />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
         <Route path="/cart" element={<Cart />} />
