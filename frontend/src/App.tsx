@@ -7,7 +7,7 @@ import Register from './pages/Register';
 import Cart from './pages/Cart';
 import Address from './pages/Address';
 import CustomPC from './pages/CustomPC';
-import Product from './pages/Product';
+import Product from './pages/Product1';
 import AddAddress from './pages/AddAddress';
 import Member1 from './pages/Member1';
 import Member2 from './pages/Member2';
