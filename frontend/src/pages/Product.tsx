@@ -3,6 +3,13 @@ import product1 from '../assets/laptop.webp';
 import "../style/productStyle.css"
 import Sitebar from './Sitebar';
 
+interface DataType {
+  imgp : string ;
+  price : number;
+  name_p :string;
+  description :string;
+
+}
 function Product() {
   return (
       
