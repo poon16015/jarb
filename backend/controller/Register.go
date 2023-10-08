@@ -24,8 +24,16 @@ func Register(c *gin.Context) {
             return
         }
     }
-    users = append(users, user)
-	
+    u := entity.Account{
+		Email: user.Email, 
+		Password: user.Password,
+	}
+
+	// บันทึก
+	if err := entity.DB().Create(&u).Error; err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
     // ส่งข้อความคืนว่าสร้างผู้ใช้เรียบร้อย
     c.JSON(http.StatusOK, gin.H{"message": "User created successfully"})
 }

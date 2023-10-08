@@ -6,14 +6,14 @@ import (
 	"github.com/poon16015/jarb/entity"
 )
 func Login(c *gin.Context) {
-	var request entity.Account
-	if err := c.BindJSON(&request); err != nil {
+	var login entity.Account
+	if err := c.BindJSON(&login); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid JSON"})
 		return
 	}
 
 	// check email and password
-	if isValidUser(request.Email, request.Password) {
+	if isValidUser(login.Email, login.Password) {
 		c.JSON(http.StatusOK, gin.H{"status": true, "message": "Login successful"})
 	} else {
 		c.JSON(http.StatusUnauthorized, gin.H{"status": false, "message": "Invalid email or password"})
