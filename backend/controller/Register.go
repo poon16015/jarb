@@ -11,7 +11,7 @@ var users = []entity.Account{}
 func Register(c *gin.Context) {
 	var user entity.Account
 
-	// ในที่นี้ให้ใช้ ShouldBindJSON เพื่อรับข้อมูล JSON จาก Request
+	// ใช้ ShouldBindJSON เพื่อรับข้อมูล JSON จาก Request
 	if err := c.ShouldBindJSON(&user); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
@@ -24,6 +24,7 @@ func Register(c *gin.Context) {
 			return
 		}
 	}
+	
 	users = append(users, user)
 
 	// ส่งข้อความคืนว่าสร้างผู้ใช้เรียบร้อย

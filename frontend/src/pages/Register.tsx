@@ -1,6 +1,6 @@
 import { FC } from 'react'
-import React, { useState, ChangeEvent } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import hide from "../assets/hide.png";
 
 import jarb from "../assets/jarb icon.png";
@@ -8,23 +8,34 @@ import register from "../assets/register.png";
 
 import { UsersInterface } from '../interfaces/IUser';
 import { createUser } from '../services/https';
+
 const Register: FC = () => {
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
     const [user, setUser] = useState<UsersInterface>({ Email: '', Password: '' });
+    const [error, setError] = useState<string>('');
+    const navigate = useNavigate(); // ใช้ navigate เพื่อเปลี่ยนหน้า
     //ปุ่มsubmit
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    
-    // เรียกใช้ API เพื่อสร้างผู้ใช้ใหม่
-    try {
-        const response = await createUser(user);
-        console.log('User created successfully:', response);
-        // ทำการนำผู้ใช้ไปใช้งานต่อหลังจากสร้างเสร็จ
-      } catch (error) {
-        console.error('Error creating user:', error);
-        // แสดงข้อผิดพลาดที่เกิดขึ้น
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        // เรียกใช้ API เพื่อสร้างผู้ใช้ใหม่
+        try {
+            const response = await createUser(user);
+            console.log('User created successfully:', response);
+            if (response.status) {
+                // Successful 
+                // ล้าง error state เมื่อสำเร็จ
+                setError('');
+                navigate('/'); // เปลี่ยนหน้าเมื่อสร้างผู้ใช้เรียบร้อย
+              } else {
+                // Error 
+                setError(response.message); // แสดงข้อความข้อผิดพลาด
+              }
+        } catch (error) {
+            // แสดงข้อผิดพลาดที่เกิดขึ้น
+            console.error('Error creating user:', error);
+            //กรณีส่งไม่ได้emailซ้ำ
+            setError('Email is already registered');
       }
     };
     
@@ -39,7 +50,7 @@ const Register: FC = () => {
                     width: "990px",
                     height: "1120px",
                 }}
-            />
+                />
             <div
                 style={{
                     marginLeft: "990px",
@@ -48,7 +59,7 @@ const Register: FC = () => {
                     width: "990px",
                     height: "1200px",
                 }}
-            />
+                />
 
             <img
                 style={{
@@ -57,12 +68,12 @@ const Register: FC = () => {
                     left: "195px",
                     width: "609px",
                     height: "298px",
-
+                    
                 }}
                 alt=""
                 src={jarb}
-
-            />
+                
+                />
 
             <img
                 style={{                    //user login
@@ -89,7 +100,7 @@ const Register: FC = () => {
                     fontSize: "60px",
                     fontFamily: "Prata",
                 }}
-            >
+                >
                 REGISTER
             </div>
 
@@ -103,10 +114,10 @@ const Register: FC = () => {
                     cursor: "pointer",
                     fontFamily: "Prata",
                     fontSize: "30px",
-
+                    
                 }}
-
-            >
+                
+                >
                 <Link to="/" style={{ textDecoration: 'none', color: 'red' }}>
                 
                 Login Account
@@ -132,7 +143,7 @@ const Register: FC = () => {
                     borderRadius: "30px",
                     backgroundColor: "#D3D3D3",
                 }}
-            />
+                />
             <input                      //text password
                 type={passwordVisible ? 'text' : 'password'}
                 placeholder="Password *"
@@ -152,7 +163,7 @@ const Register: FC = () => {
                     border: "1px",
                     backgroundColor: "#D3D3D3",
                 }}
-            />
+                />
 
             <input                      //text password confirm
                 type={confirmPasswordVisible ? 'text' : 'password'}
@@ -171,7 +182,7 @@ const Register: FC = () => {
                     border: "1px",
                     backgroundColor: "#D3D3D3",
                 }}
-            />
+                />
                 <button
                     type='submit'
                     style={{                    //login button
@@ -189,9 +200,10 @@ const Register: FC = () => {
                         border: "1px",
                         cursor: "pointer",
                     }}
-                >  
+                    >  
                     SUBMIT
                 </button>
+                {error && <div style={{position: "absolute",width: "500px",top: "750px",left: "1600px",color: "red",fontFamily: "Prata",fontSize: "24px",}}>{error}</div>} {/* แสดงข้อความข้อผิดพลาด */}
                 </form>
             <img
                 style={{                 // ตาเปิดปิด  password
@@ -206,7 +218,7 @@ const Register: FC = () => {
                 alt=""
                 src={hide}
                 onClick={() => setPasswordVisible(!passwordVisible)}
-            />
+                />
             <img
                 style={{                 // ตาเปิดปิด  confirm password
                     position: "absolute",
@@ -220,7 +232,7 @@ const Register: FC = () => {
                 alt=""
                 src={hide}
                 onClick={() => setConfirmPasswordVisible(!confirmPasswordVisible)}
-            />
+                />
         </div>
     );
 };

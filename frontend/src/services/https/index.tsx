@@ -1,20 +1,30 @@
 import { UsersInterface } from '../../interfaces/IUser';
 
-const BASE_URL = "http://localhost:8080";
+const apiUrl = "http://localhost:8080";
 
-export const createUser = async (user: UsersInterface): Promise<any> => {
+async function createUser(data: UsersInterface) {
+  const requestOptions = {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  };
+
   try {
-    const response = await fetch(`${BASE_URL}/register`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(user),
-    });
+    const response = await fetch(`${apiUrl}/register`, requestOptions);
+    const responseData = await response.json();
 
-    const data = await response.json();
-    return data;
+    if (response.status === 200) {
+      // Successful response
+      return { status: true, message: responseData.data };
+    } else {
+      // Error response
+      return { status: false, message: responseData.error };
+    }
   } catch (error) {
     throw error;
   }
+}
+
+export {
+  createUser
 };
