@@ -236,7 +236,7 @@ function Navbar() {
               textAlign: "center",
             }}
         >
-            <Link to="/cart" style={{ textDecoration: 'none', color: 'black', width: '100%', height: '100%' }}>
+            <Link to="/customPC" style={{ textDecoration: 'none', color: 'black', width: '100%', height: '100%' }}>
                   จัดสเปค
             </Link>
         </div>

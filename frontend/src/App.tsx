@@ -28,8 +28,6 @@ function App() {
         <Route path="/member2" element={<Member2 />} />
         <Route path="/history" element={<History />} />
         <Route path="/customPC" element={<CustomPC />} />
-
-
       </Routes>
     </Router>
   )

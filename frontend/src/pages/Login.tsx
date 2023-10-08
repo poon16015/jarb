@@ -40,7 +40,7 @@ const Login: FC = () => {
     };
     return (
       // logo and background jarb
-      <div className="logo">
+      <div>
         <div
           style={{
             top: "0px",
