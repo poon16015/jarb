@@ -18,7 +18,7 @@ function App() {
     <Router>
       <div className="App"></div>
       <Routes>
-        <Route path="/" element={<CustomPC />} />
+        <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/address" element={<Address />} />
@@ -27,6 +27,7 @@ function App() {
         <Route path="/member1" element={<Member1 />} />
         <Route path="/member2" element={<Member2 />} />
         <Route path="/history" element={<History />} />
+        <Route path="/customPC" element={<CustomPC />} />
 
 
       </Routes>
