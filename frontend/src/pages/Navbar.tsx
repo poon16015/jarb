@@ -2,7 +2,6 @@ import {useCallback} from "react";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-
 import point from "../assets/3point.png";
 import account_icon from "../assets/account icon.png";
 import cart from "../assets/cart.png";
@@ -11,9 +10,6 @@ import jarb_wb from "../assets/jarb icon(wb).png";
 import glass from "../assets/magnifying glass.png";
 
 function Navbar() {
-    const JarbClick = useCallback(() => {
-        //  sync "product" to the project
-      }, []);
       const ContactClick = useCallback(() => {
         window.open("https://www.youtube.com/watch?v=xvFZjo5PgG0");
       }, []);
@@ -88,7 +84,7 @@ function Navbar() {
         style={{
           position: "absolute",
           top: "92px",
-          left: "1366px",
+          left: "1355px",
           width: "53px",
           height: "52px",
           objectFit: "cover",
@@ -174,7 +170,7 @@ function Navbar() {
             src={jarb_wb}
           />
         </div>
-        <Link to="/cart">
+        <Link to="/product">
         <img
           style={{
             position: "absolute",
@@ -197,10 +193,6 @@ function Navbar() {
               backgroundColor: "transparent",
               width: "200px",
               height: "50px",
-              color: "#fff",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "flex-end",
               cursor: "pointer",
               fontSize: "30px",  
               lineHeight: "1.4",
@@ -219,17 +211,13 @@ function Navbar() {
               backgroundColor: "transparent",
               width: "210px",
               height: "50px",
-              color: "#fff",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "flex-end",
               cursor: "pointer",
               fontSize: "30px",  
               lineHeight: "1.4",
               textAlign: "right",
             }}
         >
-            <Link to="/cart" style={{ textDecoration: 'none', color: 'white', width: '100%', height: '100%' }}>
+            <Link to="/member1" style={{ textDecoration: 'none', color: 'white', width: '100%', height: '100%' }}>
                   บัญชีของฉัน
             </Link>
         </div>
@@ -242,10 +230,6 @@ function Navbar() {
               borderRadius: "10px",
               width: "150px",
               height: "30px",
-              color: "#fff",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "flex-end",
               cursor: "pointer",
               fontSize: "30px",  
               lineHeight: "1.1",
@@ -265,17 +249,13 @@ function Navbar() {
               borderRadius: "10px",
               width: "130px",
               height: "30px",
-              color: "#fff",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "flex-end",
               cursor: "pointer",
               fontSize: "30px",  
               lineHeight: "1.1",
               textAlign: "center",
             }}
         >
-            <Link to="/cart" style={{ textDecoration: 'none', color: 'black', width: '100%', height: '100%' }}>
+            <Link to="/product" style={{ textDecoration: 'none', color: 'black', width: '100%', height: '100%' }}>
                   สินค้า
             </Link>
         </div>

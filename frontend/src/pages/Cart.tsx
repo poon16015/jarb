@@ -1,19 +1,9 @@
-import { useCallback } from "react";
 import { Link } from 'react-router-dom';
-
 import twohr from "../assets/2hr.png";
 import undertab from "../assets/undertab.png";
 import Navbar from "./Navbar";
 
 function Cart() {
-    const ProductClick = useCallback(() => {
-        //sync "product" to the project
-      }, []);
-    
-      const AddressClick = useCallback(() => {
-        //sync "address" to the project
-      }, []);
-
     return (
         <div
       style={{
@@ -194,11 +184,7 @@ function Cart() {
               left: "750px",
               width: "203px",
               height: "56px",
-              color: "#fff",
               backgroundColor: "#2d3d92",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "flex-end",
               cursor: "pointer",
               fontSize: "23px",  
               fontWeight: "bold",  
@@ -206,7 +192,7 @@ function Cart() {
               textAlign: "center",
             }}
         >
-            <Link to="/address" style={{ textDecoration: 'none', color: 'white', width: '100%', height: '100%' }}>
+            <Link to="/product" style={{ textDecoration: 'none', color: 'white', width: '100%', height: '100%' }}>
                 {`<    เลือกสินค้า`}
             </Link>
         </div>
@@ -217,11 +203,7 @@ function Cart() {
                 left: "974px",
                 width: "203px",
                 height: "56px",
-                color: "#fff",
                 backgroundColor: "#2d3d92",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "flex-end",
                 cursor: "pointer",
                 fontSize: "23px",  
                 fontWeight: "bold",  
