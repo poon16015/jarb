@@ -5,27 +5,25 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/poon16015/jarb/entity"
 )
+
+// LoginPayload login body
+type LoginPayload struct {
+	Username string `json:"username"`
+	Password string `json:"password"`
+}
+
 func Login(c *gin.Context) {
-	var login entity.Account
-	if err := c.BindJSON(&login); err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid JSON"})
+	var payload LoginPayload
+	var user entity.Account
+	if err := c.ShouldBindJSON(&payload); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
-
-	// check email and password
-	if isValidUser(login.Email, login.Password) {
-		c.JSON(http.StatusOK, gin.H{"status": true, "message": "Login successful"})
-	} else {
+	// ค้นหา user ด้วย email ที่ผู้ใช้กรอกเข้ามา
+	if err := entity.DB().Raw("SELECT * FROM accounts WHERE email = ? AND password = ?", payload.Username,payload.Password).Scan(&user).Error; err != nil {
 		c.JSON(http.StatusUnauthorized, gin.H{"status": false, "message": "Invalid email or password"})
+		return
 	}
+	c.JSON(http.StatusOK, gin.H{"status": true, "message": "Login successful", "user": user})
 }
 
-func isValidUser(email, password string) bool {
-	
-	var user entity.Account
-	result := entity.DB().Where("email = ? AND password = ?", email, password).First(&user)
-	if result.Error != nil || result.RowsAffected == 0 {
-		return false
-	}
-	return true
-}
