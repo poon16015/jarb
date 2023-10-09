@@ -16,9 +16,10 @@ const Login: FC = () => {
         setShowPassword(!showPassword);
     };
 
-    const [email] = useState('');
-    const [password] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+
     const navigate = useNavigate();
     const handleLogin = async () => {
         try {
@@ -133,6 +134,7 @@ const Login: FC = () => {
           type="text"
           placeholder="Email*"
           required
+          onChange={(e) => setEmail(e.target.value)}
           style={{
             position: "absolute",
             border: "1px",
@@ -151,6 +153,7 @@ const Login: FC = () => {
           type={showPassword ? "text" : "password"}
           placeholder="password*"
           required
+          onChange={(e) => setPassword(e.target.value)}
           style={{
             position: "absolute",
             height: "65px",
@@ -168,14 +171,15 @@ const Login: FC = () => {
         <button
           type="submit"
           onClick={handleLogin}
+          disabled={!(email && password)} // ถ้าไม่มี email หรือ password ปุ่มจะถูกปิดใช้งาน
           style={{
               //login button
-              backgroundColor: "#2d3d92", // Change background color
-              color: "white", // Change text color
+              backgroundColor: email && password ? '#2d3d92' : 'grey', // Change background color
+              color: email && password ? 'white' : 'red', // Change text color
               position: "absolute",
               height: "75px",
-              padding: "10px",
-              fontSize: "30px",
+              padding: email && password ? '10px' : '3px',
+              fontSize: email && password ? '30px' : '20px',
               width: "150px",
               marginLeft: "1400px",
               marginTop: "-320px",
@@ -185,7 +189,7 @@ const Login: FC = () => {
               cursor: "pointer",
             }}
             >
-          LOGIN
+          {email && password ? 'LOGIN' : 'กรุณากรอกทั้ง Email และ Password'}
         </button>
         {error && <div style={{position: "absolute",width: "500px",top: "670px",left: "1600px",color: "red",fontFamily: "Prata",fontSize: "24px",}}>{error}</div>} {/* แสดงข้อความข้อผิดพลาด */}
         <img
