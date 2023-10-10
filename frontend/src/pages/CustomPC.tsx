@@ -305,7 +305,7 @@ const SelectBar = () => {
           <div className='prouct-container'>
               <div className='prouct-item'>
               <div className='product-detail'>
-                  fdfadfadgggggggggkkkkkkkkkkgggggggggggggggggggggggggdggggggg
+                  fdfadfadgggggggggkkkkkkkkkkgggggggggggggggggggggggdfaggdggggggg
               </div>
                 
                 <div className='product-image'>
