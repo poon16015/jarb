@@ -6,8 +6,6 @@ import (
 	"github.com/poon16015/jarb/controller"
 )
 
-const PORT = "8080"
-
 func main() {
 
 	entity.SetupDatabase()
@@ -16,6 +14,8 @@ func main() {
 	
 	//register
 	r.POST("/register", controller.Register)
+	//login
+	r.POST("/login", controller.Login)
 	
 	
 	r.Run()
