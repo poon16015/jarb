@@ -16,6 +16,9 @@ func main() {
 	r.POST("/register", controller.Register)
 	//login
 	r.POST("/login", controller.Login)
+	//cart
+	r.GET("/cart/:id", controller.GetCart)
+	r.DELETE("/cart/:id", controller.DeleteCart)
 	
 	r.Run()
 }
