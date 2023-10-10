@@ -1,5 +1,5 @@
 
-import React, { Component,useState } from 'react';
+import React, { useState, useEffect  } from 'react';
 import './cuspc.css';
 import cpu from "../assets/1.png";
 import gpu from "../assets/2.png";
@@ -15,7 +15,6 @@ import cooller from "../assets/11.png";
 import Ccase from "../assets/12.png";
 import logo from "../assets/logoJarb.png";
 
-
 import {useCallback} from "react";
 import { Link } from "react-router-dom";
 
@@ -26,6 +25,9 @@ import cart from "../assets/cart.png";
 import jarb from "../assets/jarb icon.png";
 import jarb_wb from "../assets/jarb icon(wb).png";
 import glass from "../assets/magnifying glass.png";
+
+import {ProductInterface} from "../interfaces/IProduct";
+import { GetProducts } from "../services/https";
 
 var Ncpu = ""
 var Ngpu = ""
@@ -41,7 +43,7 @@ var NCcase =""
  
 var pricetotal = ""
 
-const SelectBar = () => {
+const CustomPC = () => {
   const JarbClick = useCallback(() => {
     //  sync "product" to the project
   }, []);
@@ -57,6 +59,32 @@ const SelectBar = () => {
   const SearchSubmit = (event: React.FormEvent) => {
     event.preventDefault();
   };
+
+    const [products, setProducts] = useState<ProductInterface[]>([]);
+    
+    
+    const getProducts = async () => {
+    
+    let res = await GetProducts();
+    
+    if (res) {
+    
+      setProducts(res);
+    
+    }
+    
+    };
+    
+    
+    useEffect(() => {
+    
+    getProducts();
+    
+    }, []);
+    
+    
+
+
   
   
   return (
@@ -327,341 +355,7 @@ const SelectBar = () => {
               </div>
               
 
-              <div className='prouct-item'>
-              <div className='product-detail'>
-                  fdfadfadgggggggggkkkkkkkkkkgggggggggggggggggggggggggdggggggg
-              </div>
-                
-                <div className='product-image'>
-                    <img  src={logo} alt="Logo" style={{width:'100%'}}/>
-                </div>
-                <div className='pricegrid'>
-                  ราคา {Ncpu}
-                  
-                </div>
-                <div className='selectB'>
-                <button className='CustomBut'>
-                  CUSTOM
-                </button>
-                <span style={{width:'7%'}}></span>
-                <button className='ProductInfo'>
-                  INFO
-                </button>
-                </div>
-              </div>
-              
-              <div className='prouct-item'>
-              <div className='product-detail'>
-                  fdfadfadgggggggggkkkkkkkkkkgggggggggggggggggggggggggdggggggg
-              </div>
-                
-                <div className='product-image'>
-                    <img  src={logo} alt="Logo" style={{width:'100%'}}/>
-                </div>
-                <div className='pricegrid'>
-                  ราคา {Ncpu}
-                  
-                </div>
-                <div className='selectB'>
-                <button className='CustomBut'>
-                  CUSTOM
-                </button>
-                <span style={{width:'7%'}}></span>
-                <button className='ProductInfo'>
-                  INFO
-                </button>
-                </div>
-              </div>
-              
-              <div className='prouct-item'>
-              <div className='product-detail'>
-                  fdfadfadgggggggggkkkkkkkkkkgggggggggggggggggggggggggdggggggg
-              </div>
-                
-                <div className='product-image'>
-                    <img  src={logo} alt="Logo" style={{width:'100%'}}/>
-                </div>
-                <div className='pricegrid'>
-                  ราคา {Ncpu}
-                  
-                </div>
-                <div className='selectB'>
-                <button className='CustomBut'>
-                  CUSTOM
-                </button>
-                <span style={{width:'7%'}}></span>
-                <button className='ProductInfo'>
-                  INFO
-                </button>
-                </div>
-              </div>
-              
-              <div className='prouct-item'>
-              <div className='product-detail'>
-                  fdfadfadgggggggggkkkkkkkkkkgggggggggggggggggggggggggdggggggg
-              </div>
-                
-                <div className='product-image'>
-                    <img  src={logo} alt="Logo" style={{width:'100%'}}/>
-                </div>
-                <div className='pricegrid'>
-                  ราคา {Ncpu}
-                  
-                </div>
-                <div className='selectB'>
-                <button className='CustomBut'>
-                  CUSTOM
-                </button>
-                <span style={{width:'7%'}}></span>
-                <button className='ProductInfo'>
-                  INFO
-                </button>
-                </div>
-              </div>
-              
-              <div className='prouct-item'>
-              <div className='product-detail'>
-                  fdfadfadgggggggggkkkkkkkkkkgggggggggggggggggggggggggdggggggg
-              </div>
-                
-                <div className='product-image'>
-                    <img  src={logo} alt="Logo" style={{width:'100%'}}/>
-                </div>
-                <div className='pricegrid'>
-                  ราคา {Ncpu}
-                  
-                </div>
-                <div className='selectB'>
-                <button className='CustomBut'>
-                  CUSTOM
-                </button>
-                <span style={{width:'7%'}}></span>
-                <button className='ProductInfo'>
-                  INFO
-                </button>
-                </div>
-              </div>
-
-              <div className='prouct-item'>
-              <div className='product-detail'>
-                  fdfadfadgggggggggkkkkkkkkkkgggggggggggggggggggggggggdggggggg
-              </div>
-                
-                <div className='product-image'>
-                    <img  src={logo} alt="Logo" style={{width:'100%'}}/>
-                </div>
-                <div className='pricegrid'>
-                  ราคา {Ncpu}
-                  
-                </div>
-                <div className='selectB'>
-                <button className='CustomBut'>
-                  CUSTOM
-                </button>
-                <span style={{width:'7%'}}></span>
-                <button className='ProductInfo'>
-                  INFO
-                </button>
-                </div>
-              </div>
-              <div className='prouct-item'>
-              <div className='product-detail'>
-                  fdfadfadgggggggggkkkkkkkkkkgggggggggggggggggggggggggdggggggg
-              </div>
-                
-                <div className='product-image'>
-                    <img  src={logo} alt="Logo" style={{width:'100%'}}/>
-                </div>
-                <div className='pricegrid'>
-                  ราคา {Ncpu}
-                  
-                </div>
-                <div className='selectB'>
-                <button className='CustomBut'>
-                  CUSTOM
-                </button>
-                <span style={{width:'7%'}}></span>
-                <button className='ProductInfo'>
-                  INFO
-                </button>
-                </div>
-              </div>
-              <div className='prouct-item'>
-              <div className='product-detail'>
-                  fdfadfadgggggggggkkkkkkkkkkgggggggggggggggggggggggggdggggggg
-              </div>
-                
-                <div className='product-image'>
-                    <img  src={logo} alt="Logo" style={{width:'100%'}}/>
-                </div>
-                <div className='pricegrid'>
-                  ราคา {Ncpu}
-                  
-                </div>
-                <div className='selectB'>
-                <button className='CustomBut'>
-                  CUSTOM
-                </button>
-                <span style={{width:'7%'}}></span>
-                <button className='ProductInfo'>
-                  INFO
-                </button>
-                </div>
-              </div>
-              <div className='prouct-item'>
-              <div className='product-detail'>
-                  fdfadfadgggggggggkkkkkkkkkkgggggggggggggggggggggggggdggggggg
-              </div>
-                
-                <div className='product-image'>
-                    <img  src={logo} alt="Logo" style={{width:'100%'}}/>
-                </div>
-                <div className='pricegrid'>
-                  ราคา {Ncpu}
-                  
-                </div>
-                <div className='selectB'>
-                <button className='CustomBut'>
-                  CUSTOM
-                </button>
-                <span style={{width:'7%'}}></span>
-                <button className='ProductInfo'>
-                  INFO
-                </button>
-                </div>
-              </div>
-              <div className='prouct-item'>
-              <div className='product-detail'>
-                  fdfadfadgggggggggkkkkkkkkkkgggggggggggggggggggggggggdggggggg
-              </div>
-                
-                <div className='product-image'>
-                    <img  src={logo} alt="Logo" style={{width:'100%'}}/>
-                </div>
-                <div className='pricegrid'>
-                  ราคา {Ncpu}
-                  
-                </div>
-                <div className='selectB'>
-                <button className='CustomBut'>
-                  CUSTOM
-                </button>
-                <span style={{width:'7%'}}></span>
-                <button className='ProductInfo'>
-                  INFO
-                </button>
-                </div>
-              </div>
-              <div className='prouct-item'>
-              <div className='product-detail'>
-                  fdfadfadgggggggggkkkkkkkkkkgggggggggggggggggggggggggdggggggg
-              </div>
-                
-                <div className='product-image'>
-                    <img  src={logo} alt="Logo" style={{width:'100%'}}/>
-                </div>
-                <div className='pricegrid'>
-                  ราคา {Ncpu}
-                  
-                </div>
-                <div className='selectB'>
-                <button className='CustomBut'>
-                  CUSTOM
-                </button>
-                <span style={{width:'7%'}}></span>
-                <button className='ProductInfo'>
-                  INFO
-                </button>
-                </div>
-              </div>
-              <div className='prouct-item'>
-              <div className='product-detail'>
-                  fdfadfadgggggggggkkkkkkkkkkgggggggggggggggggggggggggdggggggg
-              </div>
-                
-                <div className='product-image'>
-                    <img  src={logo} alt="Logo" style={{width:'100%'}}/>
-                </div>
-                <div className='pricegrid'>
-                  ราคา {Ncpu}
-                  
-                </div>
-                <div className='selectB'>
-                <button className='CustomBut'>
-                  CUSTOM
-                </button>
-                <span style={{width:'7%'}}></span>
-                <button className='ProductInfo'>
-                  INFO
-                </button>
-                </div>
-              </div>
-              <div className='prouct-item'>
-              <div className='product-detail'>
-                  fdfadfadgggggggggkkkkkkkkkkgggggggggggggggggggggggggdggggggg
-              </div>
-                
-                <div className='product-image'>
-                    <img  src={logo} alt="Logo" style={{width:'100%'}}/>
-                </div>
-                <div className='pricegrid'>
-                  ราคา {Ncpu}
-                  
-                </div>
-                <div className='selectB'>
-                <button className='CustomBut'>
-                  CUSTOM
-                </button>
-                <span style={{width:'7%'}}></span>
-                <button className='ProductInfo'>
-                  INFO
-                </button>
-                </div>
-              </div>
-              <div className='prouct-item'>
-              <div className='product-detail'>
-                  fdfadfadgggggggggkkkkkkkkkkgggggggggggggggggggggggggdggggggg
-              </div>
-                
-                <div className='product-image'>
-                    <img  src={logo} alt="Logo" style={{width:'100%'}}/>
-                </div>
-                <div className='pricegrid'>
-                  ราคา {Ncpu}
-                  
-                </div>
-                <div className='selectB'>
-                <button className='CustomBut'>
-                  CUSTOM
-                </button>
-                <span style={{width:'7%'}}></span>
-                <button className='ProductInfo'>
-                  INFO
-                </button>
-                </div>
-              </div>
-              <div className='prouct-item'>
-              <div className='product-detail'>
-                  fdfadfadgggggggggkkkkkkkkkkgggggggggggggggggggggggggdggggggg
-              </div>
-                
-                <div className='product-image'>
-                    <img  src={logo} alt="Logo" style={{width:'100%'}}/>
-                </div>
-                <div className='pricegrid'>
-                  ราคา {Ncpu}
-                  
-                </div>
-                <div className='selectB'>
-                <button className='CustomBut'>
-                  CUSTOM
-                </button>
-                <span style={{width:'7%'}}></span>
-                <button className='ProductInfo'>
-                  INFO
-                </button>
-                </div>
-              </div>
+          
               
               
 
@@ -677,4 +371,4 @@ const SelectBar = () => {
   )
 }
 
-export default SelectBar
+export default CustomPC

@@ -1,8 +1,9 @@
 export interface ProductInterface {
     ID? :number ;
-    imgp? : string ;
-    price? : number;
-    name_p? :string;
-    description? :string;
+    Imgp? : string ;
+    Price? : number;
+    Name_p? :string;
+    Description? :string;
+    Incompatible?: string;
   
   }

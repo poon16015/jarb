@@ -27,6 +27,26 @@ func MockupProduct(){
 	}
 	db.Model(&ProductType{}).Create(&pType5)
 
+	pType6 := ProductType{
+		Type: "mainBo",
+	}
+	db.Model(&ProductType{}).Create(&pType6)
+
+	pType7 := ProductType{
+		Type: "Ccase",
+	}
+	db.Model(&ProductType{}).Create(&pType7)
+
+	pType8 := ProductType{
+		Type: "GPU",
+	}
+	db.Model(&ProductType{}).Create(&pType8)
+
+	pType9 := ProductType{
+		Type: "cooller",
+	}
+	db.Model(&ProductType{}).Create(&pType9)
+
 
 	
 	prod1 := Product{

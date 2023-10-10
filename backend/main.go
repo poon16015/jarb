@@ -16,7 +16,11 @@ func main() {
 	r.POST("/register", controller.Register)
 	//login
 	r.POST("/login", controller.Login)
-	
+	//customp
+	r.GET("/customPC",controller.GetProductCustom)
+
+
+
 	r.Run()
 }
 
