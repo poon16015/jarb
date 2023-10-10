@@ -13,6 +13,7 @@ import Member1 from './pages/Member1';
 import Member2 from './pages/Member2';
 import History from './pages/History';
 import Bank from './pages/Bank';
+import ProductLaptop1 from './pages/ProductLaptop1';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path="/history" element={<History />} />
         <Route path="/customPC" element={<CustomPC />} />
         <Route path="/payment" element={<Bank />} />
+        <Route path="ProductLaptop1" element={<ProductLaptop1/>}/>
       </Routes>
     </Router>
   )
