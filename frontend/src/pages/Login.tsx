@@ -185,7 +185,7 @@ const Login: FC = () => {
             >
           {userlogin.Email && userlogin.Password ? 'LOGIN' : 'กรุณากรอกทั้ง Email และ Password'}
         </button>
-        {error && <div style={{position: "absolute",width: "500px",top: "670px",left: "1500px",color: "red",fontFamily: "Prata",fontSize: "24px",}}>{error}</div>} {/* แสดงข้อความข้อผิดพลาด */}
+        {error && <div style={{position: "absolute",width: "600px",top: "670px",left: "1300px",color: "red",fontFamily: "Prata",fontSize: "24px",textAlign: "right",}}>{error}</div>} {/* แสดงข้อความข้อผิดพลาด */}
         <img
           style={{
             //password icon
