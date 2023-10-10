@@ -1,13 +1,13 @@
 import { FC, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { login } from '../services/https';
+import { UsersInterface } from '../interfaces/IUser';
 
 import jarb from "../assets/jarb icon.png";
 import user1 from "../assets/user (1).png";
 import lock from "../assets/lock.png";
 import emailicon from "../assets/email.png";
 import hide from "../assets/hide.png";
-
 
 const Login: FC = () => {
     //hidepassword
@@ -16,28 +16,22 @@ const Login: FC = () => {
         setShowPassword(!showPassword);
     };
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [userlogin, setUser] = useState<UsersInterface>({ Email: '', Password: '' });
     const [error, setError] = useState('');
 
     const navigate = useNavigate();
     const handleLogin = async () => {
-        try {
-            const userData = { Email: email, Password: password };
-            const response = await login(userData);
-
-            if (response.status) {
-                // ล้าง error state เมื่อสำเร็จ
-                setError('');
-                // Login navigate to the product page
-                navigate("/product");
-            } else {
-                // Login failed, display error message
-                setError(response.message);
-            }
-        } catch (error) {
-            setError('Wrong email or password');
-        }
+    
+    const response = await login(userlogin);
+    if (response.status) {
+      // ล้าง error state เมื่อสำเร็จ
+      setError("");
+      // Login navigate to the product page
+      navigate("/product");
+    } else {
+      // Login failed, display error message
+      setError(response.message);
+    }   
     };
     return (
       // logo and background jarb
@@ -133,8 +127,8 @@ const Login: FC = () => {
         <input //text email
           type="text"
           placeholder="Email*"
-          required
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => setUser({ ...userlogin, Email: e.target.value })}
+          value={userlogin.Email}
           style={{
             position: "absolute",
             border: "1px",
@@ -152,8 +146,8 @@ const Login: FC = () => {
         <input //text password
           type={showPassword ? "text" : "password"}
           placeholder="password*"
-          required
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(e) => setUser({ ...userlogin, Password: e.target.value })}
+          value={userlogin.Password}
           style={{
             position: "absolute",
             height: "65px",
@@ -171,15 +165,15 @@ const Login: FC = () => {
         <button
           type="submit"
           onClick={handleLogin}
-          disabled={!(email && password)} // ถ้าไม่มี email หรือ password ปุ่มจะถูกปิดใช้งาน
+          disabled={!(userlogin.Email && userlogin.Password)} // ถ้าไม่มี email หรือ password ปุ่มจะถูกปิดใช้งาน
           style={{
               //login button
-              backgroundColor: email && password ? '#2d3d92' : 'grey', // Change background color
-              color: email && password ? 'white' : 'red', // Change text color
+              backgroundColor: userlogin.Email && userlogin.Password ? '#2d3d92' : 'grey', // Change background color
+              color: userlogin.Email && userlogin.Password ? 'white' : 'red', // Change text color
               position: "absolute",
               height: "75px",
-              padding: email && password ? '10px' : '3px',
-              fontSize: email && password ? '30px' : '20px',
+              padding: userlogin.Email && userlogin.Password ? '10px' : '3px',
+              fontSize: userlogin.Email && userlogin.Password ? '30px' : '20px',
               width: "150px",
               marginLeft: "1400px",
               marginTop: "-320px",
@@ -189,9 +183,9 @@ const Login: FC = () => {
               cursor: "pointer",
             }}
             >
-          {email && password ? 'LOGIN' : 'กรุณากรอกทั้ง Email และ Password'}
+          {userlogin.Email && userlogin.Password ? 'LOGIN' : 'กรุณากรอกทั้ง Email และ Password'}
         </button>
-        {error && <div style={{position: "absolute",width: "500px",top: "670px",left: "1600px",color: "red",fontFamily: "Prata",fontSize: "24px",}}>{error}</div>} {/* แสดงข้อความข้อผิดพลาด */}
+        {error && <div style={{position: "absolute",width: "500px",top: "670px",left: "1500px",color: "red",fontFamily: "Prata",fontSize: "24px",}}>{error}</div>} {/* แสดงข้อความข้อผิดพลาด */}
         <img
           style={{
             //password icon

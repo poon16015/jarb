@@ -25,24 +25,17 @@ const Register: FC = () => {
             setError('Password and confirm password must match');
             return;
         }
-        try {
-            const response = await createUser(user);
-            console.log('User created successfully:', response);
-            if (response.status) {
-                // Successful 
-                // ล้าง error state เมื่อสำเร็จ
-                setError('');
-                navigate('/'); // เปลี่ยนหน้าเมื่อสร้างผู้ใช้เรียบร้อย
-              } else {
-                // Error 
-                setError('Email is already registered'); // แสดงข้อความข้อผิดพลาด
-              }
-        } catch (error) {
-            // แสดงข้อผิดพลาดที่เกิดขึ้น
-            console.error('Error creating user:', error);
-            //กรณีส่งไม่ได้emailซ้ำ
-            setError('Email is already registered');
-      }
+        const response = await createUser(user);
+        if (response.status) {
+        // Successful 
+        // ล้าง error state เมื่อสำเร็จ
+        setError('');
+        navigate('/'); // เปลี่ยนหน้าเมื่อสร้างผู้ใช้เรียบร้อย
+        } else {
+        // Error 
+        setError(response.message); // แสดงข้อความข้อผิดพลาด
+         }
+      
     };
     
     return (

@@ -360,7 +360,7 @@ function Address() {
                 textAlign: "center",
             }}
         >
-            <Link to="/address" style={{ textDecoration: 'none', color: 'white', width: '100%', height: '100%' }}>
+            <Link to="/payment" style={{ textDecoration: 'none', color: 'white', width: '100%', height: '100%' }}>
                 {'ชำระเงิน      >'}
             </Link>
         </div>
