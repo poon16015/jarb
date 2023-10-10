@@ -10,14 +10,16 @@ import (
 
 func GetProductCustom(c *gin.Context) {
 	var Products  []entity.Product
-	ProductTypeID := c.Param("TypeID")
+	TypeID := c.Param("ProductTypeID")
 	
-	if err :=entity.DB().Raw("SELECT * FROM Products WHERE TypeID = ?",ProductTypeID).Scan(&Products).Error; err != nil{
+	if err :=entity.DB().Raw("SELECT * FROM Products WHERE ProductTypeID = ?",TypeID).Scan(&Products).Error; err != nil{
 
 	c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 	return
 }
-	// ส่งข้อความคืนว่าสร้างผู้ใช้เรียบร้อย
-	c.JSON(http.StatusOK, gin.H{"message": Products})
+	
+	c.JSON(http.StatusOK, gin.H{"data": Products})
 	
 }
+
+
