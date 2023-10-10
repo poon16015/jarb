@@ -118,4 +118,9 @@ func MockupProduct(){
 		ProductType: pType3 ,
 	}
 	db.Model(&Product{}).Create(&prod10)
+
+
+
+
+	
 }
