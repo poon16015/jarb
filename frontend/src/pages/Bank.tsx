@@ -11,6 +11,7 @@ import credit_kasikorn from "../assets/credit_kasikorn.png";
 import american_express from "../assets/american_express.png";
 import ktc from "../assets/ktc.png";
 import delivery from "../assets/delivery.jpg";
+import Navbar from "./Navbar";
 
 const { TabPane } = Tabs;
 
@@ -57,6 +58,7 @@ function Bank() {
 
   return (
     <div>
+      <Navbar/>
       <div
         style={{
           position: 'absolute',
