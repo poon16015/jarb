@@ -14,4 +14,6 @@ function ProductLaptop1() {
   );
 }
 
+
+
 export default ProductLaptop1;
