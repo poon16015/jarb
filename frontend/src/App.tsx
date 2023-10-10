@@ -16,6 +16,7 @@ import Bank from './pages/Bank';
 import ProductLaptop1 from './pages/ProductLaptop1';
 import ProductMonitor1 from './pages/ProductMonitor1';
 import ProductStoreage1 from './pages/ProductStoreage1';
+import ProductMandK1 from './pages/ProductMandK1';
 
 function App() {
   return (
@@ -36,6 +37,8 @@ function App() {
         <Route path="ProductLaptop1" element={<ProductLaptop1/>}/>
         <Route path="ProductMonitor1" element={<ProductMonitor1/>}/>
         <Route path="ProductStoreage1" element={<ProductStoreage1/>}/>
+        <Route path="ProductMandK1" element={<ProductMandK1/>}/>
+
 
       </Routes>
     </Router>
