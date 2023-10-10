@@ -1,6 +1,6 @@
 import { ProductInterface } from "../../interfaces/IProduct";
 
-const apiUrl ="http://localhost:3000/product#"
+const apiUrl ="http://localhost:8080"
 
 async function GetProduct() {
     const requestOptions ={
@@ -22,4 +22,5 @@ async function GetProduct() {
     });
     return res;
 }
+export {GetProduct } 
 

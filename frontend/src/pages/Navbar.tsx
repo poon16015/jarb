@@ -2,7 +2,6 @@ import {useCallback} from "react";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-
 import point from "../assets/3point.png";
 import account_icon from "../assets/account icon.png";
 import cart from "../assets/cart.png";
@@ -192,10 +191,6 @@ function Navbar() {
               backgroundColor: "transparent",
               width: "200px",
               height: "50px",
-              color: "#fff",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "flex-end",
               cursor: "pointer",
               fontSize: "30px",  
               lineHeight: "1.4",
@@ -214,10 +209,6 @@ function Navbar() {
               backgroundColor: "transparent",
               width: "210px",
               height: "50px",
-              color: "#fff",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "flex-end",
               cursor: "pointer",
               fontSize: "30px",  
               lineHeight: "1.4",
@@ -237,10 +228,6 @@ function Navbar() {
               borderRadius: "10px",
               width: "150px",
               height: "30px",
-              color: "#fff",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "flex-end",
               cursor: "pointer",
               fontSize: "30px",  
               lineHeight: "1.1",
@@ -260,10 +247,6 @@ function Navbar() {
               borderRadius: "10px",
               width: "130px",
               height: "30px",
-              color: "#fff",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "flex-end",
               cursor: "pointer",
               fontSize: "30px",  
               lineHeight: "1.1",

@@ -2,14 +2,17 @@ import React from 'react';
 import product1 from '../assets/laptop.webp';
 import "../style/productStyle.css"
 import Sitebar from './Sitebar';
+import { ProductInterface } from '../interfaces/IProduct';
+import {GetProduct} from '../services/https/productIndex';
+import { Link } from 'react-router-dom';
 
 interface DataType {
   imgp : string ;
   price : number;
   name_p :string;
   description :string;
-
 }
+
 function Product() {
   return (
       
@@ -17,7 +20,7 @@ function Product() {
         <div className="product_con">
           <div className="product_item">
             <div className="product_img">
-              <img src={product1}  />
+              <img src ={product1}/>
             </div>  
               <div className='button'> 
                 ซื้อเลย
@@ -37,5 +40,8 @@ function Product() {
       </div>
   );
 }
+
+
+
 
 export default Product;
