@@ -12,6 +12,7 @@ import AddAddress from './pages/AddAddress';
 import Member1 from './pages/Member1';
 import Member2 from './pages/Member2';
 import History from './pages/History';
+import Bank from './pages/Bank';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/member2" element={<Member2 />} />
         <Route path="/history" element={<History />} />
         <Route path="/customPC" element={<CustomPC />} />
+        <Route path="/payment" element={<Bank />} />
       </Routes>
     </Router>
   )

@@ -2,7 +2,7 @@ import { useState, useCallback } from 'react';
 import { Button, Tabs, Card, Radio } from 'antd';
 import type { RadioChangeEvent } from 'antd';
 import undertab from "../assets/undertab.png";
-import qr_code from "../assets/QR_Code.png";
+import qr_code from "../assets/qr_code.png";
 import bank_scb from "../assets/bank_scb.png";
 import bank_bangkok from "../assets/bank_bangkok.png";
 import bank_kasikorn from "../assets/bank_kasikorn.png";
