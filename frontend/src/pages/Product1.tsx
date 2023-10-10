@@ -1,4 +1,3 @@
-import React from 'react';
 import Product from './Product';
 import Sitebar from './Sitebar';
 import Navbar from './Navbar';

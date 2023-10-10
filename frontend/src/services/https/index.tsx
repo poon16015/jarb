@@ -9,22 +9,38 @@ async function createUser(data: UsersInterface) {
     body: JSON.stringify(data),
   };
 
-  try {
-    const response = await fetch(`${apiUrl}/register`, requestOptions);
-    const responseData = await response.json();
-
-    if (response.status === 200) {
-      // Successful response
-      return { status: true, message: responseData.data };
-    } else {
-      // Error response
-      return { status: false, message: responseData.error };
-    }
-  } catch (error) {
-    throw error;
+  const response = await fetch(`${apiUrl}/register`, requestOptions);
+  const responseData = await response.json();
+  
+  if (response.status === 200) {
+    // Successful response
+    return { status: true, message: responseData.data };
+  } else {
+    // Error response
+    return { status: false, message: responseData.error };
   }
 }
 
+async function login(data: UsersInterface) {
+  const requestOptions = {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  };
+  const response = await fetch(`${apiUrl}/login`, requestOptions);
+  const responseData = await response.json();
+
+  if (response.status === 200) {
+    // Successful response
+    return { status: true, message: responseData.data };
+  } else {
+    // Error response
+    return { status: false, message: responseData.error };
+  }
+  
+}
+
 export {
-  createUser
+  createUser,
+  login
 };
