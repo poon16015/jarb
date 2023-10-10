@@ -28,7 +28,7 @@ func GetProduct(c *gin.Context) {
 	// Get Products
 	func ListProduct(c *gin.Context){
 		var products []entity.Product
-		if err := entity.DB().Raw("SELECT *FROM Product").Scan(&products).Error; err := nil{
+		if err := entity.DB().Raw("SELECT *FROM Product").Scan(&products).Error; err != nil{
 			c.JSON(http.StatusBadRequest, gin.H{"error":err.Error()})
 			return
 		}
