@@ -14,7 +14,7 @@ import Member2 from './pages/Member2';
 import History from './pages/History';
 import Bank from './pages/Bank';
 import ProductLaptop1 from './pages/ProductLaptop1';
-
+import ProductMonitor1 from './pages/ProductMonitor1';
 function App() {
   return (
     <Router>
@@ -32,6 +32,8 @@ function App() {
         <Route path="/customPC" element={<CustomPC />} />
         <Route path="/payment" element={<Bank />} />
         <Route path="ProductLaptop1" element={<ProductLaptop1/>}/>
+        <Route path="ProductMonitor1" element={<ProductMonitor1/>}/>
+
       </Routes>
     </Router>
   )
