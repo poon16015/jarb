@@ -60,7 +60,20 @@ const CustomPC = () => {
     event.preventDefault();
   };
 
-    const [products, setProducts] = useState<ProductInterface[]>([]);
+  
+  const [TypeP,setTypeP] = useState('');
+  
+  const selectType5 = () => {
+    setTypeP("pType5");
+  };
+
+  const selectType2 = () => {
+    setTypeP("pType2");
+  };
+  
+  
+  
+  const [products, setProducts] = useState<ProductInterface[]>([]);
     
     
     const getProducts = async () => {
@@ -158,7 +171,7 @@ const CustomPC = () => {
           </div> 
         </div>
 
-        <a className='sider-item'>
+        <a className='sider-item' onClick={selectType5}>
               <div className='iconbox'>
                 <img src={cpu} alt="cpu" style={{ width:"100%" , minHeight:'100%'}} />      
                     <a className='detail' placeholder={"Cpu"} style={{marginLeft: "5px"}}>
@@ -179,7 +192,7 @@ const CustomPC = () => {
       
         </a>
         
-        <a className='sider-item'>
+        <a className='sider-item' onClick={selectType2}>
               <div className='iconbox'>
                 <img src={gpu} alt="gpu" style={{ width:"100%" , minHeight:'100%'}} />      
                     <a className='detail' placeholder={"Cpu"} style={{marginLeft: "5px"}}>
