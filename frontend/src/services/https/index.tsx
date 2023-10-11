@@ -36,7 +36,7 @@ const login = async (data: UsersInterface) => {
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("uid", res.data.id);
         console.log(res.data);
-        return { status: true, data:res.data };res.data;
+        return res.data;
       } else {
         return false;
       }

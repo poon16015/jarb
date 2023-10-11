@@ -30,7 +30,7 @@ const Login: FC = () => {
       navigate("/product");
     } else {
       // Login failed, display error message
-      setError("Login failed. Please check your credentials.");
+      setError("Login failed. Please check your email and password.");
     }   
     };
     return (
