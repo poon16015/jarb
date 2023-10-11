@@ -1,5 +1,4 @@
 package entity
-
 func MockupProduct(){
 
 	pType1 := ProductType{
@@ -138,9 +137,4 @@ func MockupProduct(){
 		ProductType: pType3 ,
 	}
 	db.Model(&Product{}).Create(&prod10)
-
-
-
-
-	
 }
