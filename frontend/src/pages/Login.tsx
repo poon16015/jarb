@@ -33,6 +33,7 @@ const Login: FC = () => {
       setError("Login failed. Please check your email and password.");
     }   
     };
+    
     return (
       // logo and background jarb
       <div>
@@ -183,7 +184,7 @@ const Login: FC = () => {
               cursor: "pointer",
             }}
             >
-          {userlogin.Email && userlogin.Password ? 'LOGIN' : 'กรุณากรอกทั้ง Email และ Password'}
+          {userlogin.Email && userlogin.Password ? 'LOGIN' : 'กรุณากรอก Email และ Password'}
         </button>
         {error && <div style={{position: "absolute",width: "600px",top: "670px",left: "1300px",color: "red",fontFamily: "Prata",fontSize: "24px",textAlign: "right",}}>{error}</div>} {/* แสดงข้อความข้อผิดพลาด */}
         <img
