@@ -23,14 +23,14 @@ const Login: FC = () => {
     const handleLogin = async () => {
     
     const response = await login(userlogin);
-    if (response.status) {
+    if (response) {
       // ล้าง error state เมื่อสำเร็จ
       setError("");
       // Login navigate to the product page
       navigate("/product");
     } else {
       // Login failed, display error message
-      setError(response.message);
+      setError("Login failed. Please check your credentials.");
     }   
     };
     return (
