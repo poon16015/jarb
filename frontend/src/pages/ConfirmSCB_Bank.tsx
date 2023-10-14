@@ -3,6 +3,8 @@ import type { ColumnsType } from 'antd/es/table';
 import car from "../assets/car.png";
 import scb from "../assets/scb.jpg";
 import undertab from "../assets/undertab.png";
+import Navbar from "./Navbar";
+import { Link } from "react-router-dom";
 
 interface DataType {
     key: string;
@@ -56,6 +58,7 @@ interface DataType {
 function ConfirmSCB_Bank() {
   return (
     <div>
+      <Navbar/>
       <div
         style={{
           position: 'absolute',
@@ -226,7 +229,9 @@ function ConfirmSCB_Bank() {
           fontSize: '18px',
         }}
       >
-        {`<     ชำระเงิน`}
+        <Link to="/payment" style={{ textDecoration: 'none', color: 'white', width: '100%', height: '100%' }}>
+                {'<     ชำระเงิน'}
+            </Link>
       </Button>
       <Button
         type="primary"

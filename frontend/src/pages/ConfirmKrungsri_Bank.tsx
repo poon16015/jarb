@@ -1,8 +1,7 @@
 import { Card, Button, Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import car from "../assets/car.png";
-import visa from "../assets/visa.jpg";
-import master_card from "../assets/master_card.jpg";
+import krungsri from "../assets/krungsri.jpg";
 import undertab from "../assets/undertab.png";
 import Navbar from "./Navbar";
 import { Link } from "react-router-dom";
@@ -56,7 +55,7 @@ interface DataType {
   ];
   
 
-function ConfirmAmerican_Credit() {
+function ConfirmKrungsri_Bank() {
   return (
     <div>
       <Navbar/>
@@ -156,28 +155,16 @@ function ConfirmAmerican_Credit() {
             วิธีการชำระเงินสินค้า
           </div>
             
-            <img //รูปvisa
+            <img //รูปkrungsri
               style={{
                 position: "absolute",
                 top: "775px",
-                left: "130px",
-                width: "50px",
-                height: "30px",
+                left: "28px",
+                width: "150px",
+                height: "112px",
               }}
               alt=""
-              src={visa}
-            /> 
-
-            <img //รูป master_card
-              style={{
-                position: "absolute",
-                top: "775px",
-                left: "190px",
-                width: "50px",
-                height: "30px",
-              }}
-              alt=""
-              src={master_card}
+              src={krungsri}
             /> 
             
             <div style={{ 
@@ -186,40 +173,48 @@ function ConfirmAmerican_Credit() {
               left: "28px",
               fontSize: '20px',
             }}>
-            วิธีการชำระค่าสินค้าด้วยบัตรเครดิต / Credit Card
+            ชำระเงินโดยวิธีการโอนเงินเข้าบัญชีธนาคารผ่านเคาเตอร์ธนาคาร หรือ ตู้ ATM
             </div>   
             
             <div style={{ 
               position: "absolute", 
-              top: "815px", 
-              left: "26px",
+              top: "770px", 
+              left: "195px",
               fontSize: '16px',
             }}>
-            ท่านสามารถชำระค่าสินค้าด้วยบัตรเครดิต VISA, MASTER CARD, JCB ที่ออกโดยธนาคารต่างๆ ทั่วโลก 
+            ธนาคาร : กรุงศรีอยุธยา
             </div>   
             <div style={{ 
               position: "absolute", 
+              top: "795px", 
+              left: "195px",
+              fontSize: '16px',
+            }}>
+            สาขาย่อย : เดอะมอลล์โคราช
+            </div> 
+            <div style={{ 
+              position: "absolute", 
+              top: "820px", 
+              left: "195px",
+              fontSize: '16px',
+            }}>
+            ชื่อบัญชี : บริษัท จ๊าบ คอมพิวเตอร์ กรุ๊ป จำกัด
+            </div> 
+            <div style={{ 
+              position: "absolute", 
               top: "845px", 
-              left: "26px",
+              left: "195px",
               fontSize: '16px',
             }}>
-            ได้สะดวก รวดเร็ว ปลอดภัย ด้วยมาตรฐานความปลอดภัยโดยบริการ K-Payment Gateway ของ ธนาคารกสิกรไทย
+            ประเภทบัญชี : ออมทรัพย์
             </div> 
             <div style={{ 
               position: "absolute", 
-              top: "863px", 
-              left: "26px",
+              top: "870px", 
+              left: "195px",
               fontSize: '16px',
             }}>
-            สามารถรองรับการอนุมัติวงเงินบัตรเครดิตแบบ Real-Time ได้ตลอด 24 ชั่วโมง
-            </div> 
-            <div style={{ 
-              position: "absolute", 
-              top: "893px", 
-              left: "26px",
-              fontSize: '16px',
-            }}>
-            บริการนี้ รองรับการชำระด้วยสกุลเงิน บาท เท่านั้น
+            เลขที่บัญชี : 283-1-37000-2
             </div> 
       <Button
         type="primary"
@@ -360,4 +355,4 @@ function ConfirmAmerican_Credit() {
   );
 }
 
-export default ConfirmAmerican_Credit;
+export default ConfirmKrungsri_Bank;
