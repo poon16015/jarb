@@ -14,19 +14,16 @@ func main() {
 	
 	//register
 	r.POST("/register", controller.Register)
-<<<<<<< HEAD
 	//member1
 	r.POST("/member1", controller.Member1)
 	//member2
 	r.PUT("/member2", controller.Member1)
 
-=======
 	//login
 	r.POST("/login", controller.Login)
 	//cart
 	r.GET("/cart/:id", controller.GetCart)
 	r.DELETE("/cart/:id", controller.DeleteCart)
->>>>>>> 8135de6c4308cc9636b463d26ef12f642bcd77b8
 	
 	r.Run()
 }
