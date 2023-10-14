@@ -30,6 +30,4 @@ func SetupDatabase() {
     &Payment{},
   )
   db = database
-
-  MockupProduct()
 }

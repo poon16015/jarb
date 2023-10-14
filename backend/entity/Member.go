@@ -12,7 +12,7 @@ type Member struct {
 	Email  string
 
 	AccountID *uint 
-
+	Account   Account `gorm:"foreignKey:AccountID"`
 
 	Addresses []Address `gorm:"foreignKey:MemberID"`
 	Histories []History `gorm:"foreignKey:MemberID"`

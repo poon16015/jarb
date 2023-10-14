@@ -1,28 +1,16 @@
-import React, { useState ,useEffect} from 'react';
+import React from 'react';
 import product1 from '../assets/laptop.webp';
 import "../style/productStyle.css"
-
-
-import { ProductInterface } from '../interfaces/IProduct';
-import {GetProduct} from '../services/https/productIndex';
-
-interface DataType {
-  imgp : string ;
-  price : number;
-  name_p :string;
-  description :string;
-}
+import Sitebar from './Sitebar';
 
 function Product() {
   return (
-      //const [product, setProduct]= useState<ProductInterface>({name_p:""});
-      
       
       <div className="container_product" >
         <div className="product_con">
           <div className="product_item">
             <div className="product_img">
-              <img src ={product1}/>
+              <img src={product1}  />
             </div>  
               <div className='button'> 
                 ซื้อเลย
@@ -42,8 +30,5 @@ function Product() {
       </div>
   );
 }
-
-
-
 
 export default Product;

@@ -2,18 +2,101 @@ import Navbar from "./Navbar";
 import log_out from "../assets/log-out.png";
 import user3 from "../assets/user (3).png";
 import { Link } from 'react-router-dom';
-
+import React, { useState, useEffect } from "react";
+import { updatedMemberData } from "../services/https/Member";
+import { useNavigate } from "react-router-dom";
+import { MemberInterface } from "../interfaces/IMember";
 
 function Member2() {
+    //อัปเดตตัวแปรสถานะ เพื่อเก็บค่าอินพุตของแบบฟอร์ม
+    const [success, setSuccess] = useState(false);
+    const [error, setError] = useState(false);
+    const navigate = useNavigate(); // ใช้ navigate เพื่อเปลี่ยนหน้า
+    const [name, setName] = useState("");
+    const [dob, setDob] = useState("");
+    const [gender, setGender] = useState("");
+    const [tel, setTel] = useState("");
+    const [email, setEmail] = useState("");
+    const apiUrl = "http://localhost:8080";
+
+    // สร้างฟังก์ชันเพื่อจัดการการเปลี่ยนแปลงในอินพุตแบบฟอร์มและอัปเดตตัวแปรสถานะที่เกี่ยวข้อง
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        
+        // Update the respective state variable based on the input field's name
+        switch (name) {
+          case 'name':
+            setName(value);
+            break;
+          case 'dob':
+            setDob(value);
+            break;
+          case 'gender':
+            setGender(value);
+            break;
+          case 'tel':
+            setTel(value);
+            break;
+          case 'email':
+            setEmail(value);
+            break;
+          default:
+            break;
+        }
+      };
+      
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+      
+        const updatedData = {
+          name,
+          dob,
+          gender,
+          tel,
+          email
+        };
+      
+        try {
+          // Call a function to update the member data
+          await UpdatedMemberData(updatedData);  // Corrected function call
+          setSuccess(true);  // Set success flag to display a success message
+        } catch (error) {
+          console.error("Error updating member information:", error);
+          setError(true);  // Set error flag to display an error message
+        }
+    };
+
+    async function UpdatedMemberData(memberId: number, data: MemberInterface) {
+        const requestOptions = {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        };
+
+        // สร้างฟังก์ชัน updateMemberData ที่ส่งคำขอ PUT ไปยังเซิร์ฟเวอร์เพื่ออัปเดตข้อมูลของสมาชิก
+      const UpdatedMemberData = async (updatedData) => {
+        const memberId = "1";  // Replace with the actual member ID
+        const requestOptions = {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(updatedData)
+        };
+      
+        const response = await fetch(`${apiUrl}/members/${memberId}`, requestOptions);
+        const responseData = await response.json();
+      
+        if (!response.ok) {
+          throw new Error(responseData.error || "Failed to update member data");
+        }
+      };
+    }     
     
-
-
-
-
+      
     return (
-        <div> 
-        <Navbar/>
-        <div
+        <div>
+            <Navbar />
+            <div
                 style={{                //  บัญชีของฉัน
                     position: "absolute",
                     top: "350px",
@@ -24,69 +107,69 @@ function Member2() {
                     height: "75px",
                     fontSize: "45px",
                     fontFamily: "Inter",
-                    fontWeight: "bold", 
+                    fontWeight: "bold",
                 }}
             >
                 บัญชีของฉัน
             </div>
             <div
-            style={{
-              position: "absolute",
-              top: "450px",
-              left: "35px",
-              backgroundColor: "White",
-              width: "310px",
-              height: "75px",
-              color: "#fff",
-              cursor: "pointer",
-              lineHeight: "1.8",
-              textAlign: "left",
-              fontSize: "40px",
-              fontFamily: "Inter",
-            }}
-        >
-            <Link to="/member1" style={{ textDecoration: 'none', color: 'black', width: '100%', height: '100%' }}>
-                  ข้อมูลส่วนตัว
-            </Link>
-        </div>
+                style={{
+                    position: "absolute",
+                    top: "450px",
+                    left: "35px",
+                    backgroundColor: "White",
+                    width: "310px",
+                    height: "75px",
+                    color: "#fff",
+                    cursor: "pointer",
+                    lineHeight: "1.8",
+                    textAlign: "left",
+                    fontSize: "40px",
+                    fontFamily: "Inter",
+                }}
+            >
+                <Link to="/member1" style={{ textDecoration: 'none', color: 'black', width: '100%', height: '100%' }}>
+                    ข้อมูลส่วนตัว
+                </Link>
+            </div>
             <div
-            style={{
-              position: "absolute",
-              top: "550px",
-              left: "35px",
-              backgroundColor: "Gray",
-              width: "310px",
-              height: "75px",
-              cursor: "pointer",
-              lineHeight: "1.8",
-              textAlign: "left",
-              fontSize: "40px",
-              fontFamily: "Inter",
-            }}
-        >
-            <Link to="/member2" style={{ textDecoration: 'none', color: 'black', width: '100%', height: '100%' }}>
-            แก้ไขข้อมูลส่วนตัว
-            </Link>
-        </div>
+                style={{
+                    position: "absolute",
+                    top: "550px",
+                    left: "35px",
+                    backgroundColor: "Gray",
+                    width: "310px",
+                    height: "75px",
+                    cursor: "pointer",
+                    lineHeight: "1.8",
+                    textAlign: "left",
+                    fontSize: "40px",
+                    fontFamily: "Inter",
+                }}
+            >
+                <Link to="/member2" style={{ textDecoration: 'none', color: 'black', width: '100%', height: '100%' }}>
+                    แก้ไขข้อมูลส่วนตัว
+                </Link>
+            </div>
             <div
-            style={{
-              position: "absolute",
-              top: "650px",
-              left: "35px",
-              backgroundColor: "White",
-              width: "310px",
-              height: "75px",
-              cursor: "pointer",
-              lineHeight: "1.8",
-              textAlign: "left",
-              fontSize: "40px",
-              fontFamily: "Inter",
-            }}
-        >
-            <Link to="/history" style={{ textDecoration: 'none', color: 'black', width: '100%', height: '100%' }}>
-            ประวัติการสั่งซื้อ
-            </Link>
-        </div>
+                style={{
+                    position: "absolute",
+                    top: "650px",
+                    left: "35px",
+                    backgroundColor: "White",
+                    width: "310px",
+                    height: "75px",
+                    cursor: "pointer",
+                    lineHeight: "1.8",
+                    textAlign: "left",
+                    fontSize: "40px",
+                    fontFamily: "Inter",
+                }}
+            >
+                <Link to="/history" style={{ textDecoration: 'none', color: 'black', width: '100%', height: '100%' }}>
+                    ประวัติการสั่งซื้อ
+                </Link>
+            </div>
 
             <div
                 style={{                //login
@@ -104,22 +187,22 @@ function Member2() {
                 ลบบัญชี
             </div>
             <Link to="/member1">
-            <img
-                style={{
-                    position: "absolute",    //log out icon
-                    top: "900px",
-                    left: "127px",
-                    width: "70px",
-                    height: "70px",
-                    objectFit: "cover",
+                <img
+                    style={{
+                        position: "absolute",    //log out icon
+                        top: "900px",
+                        left: "127px",
+                        width: "70px",
+                        height: "70px",
+                        objectFit: "cover",
 
-                }}
-                alt=""
-                src={log_out}
-            />
+                    }}
+                    alt=""
+                    src={log_out}
+                />
             </Link>
 
-            
+
 
             <div
                 style={{                //line
@@ -146,7 +229,10 @@ function Member2() {
                 alt=""
                 src={user3}
             />
+            <form onSubmit={handleSubmit}>
+
             <div
+           
                 style={{              // Name Lastname
                     position: "absolute",
                     top: "330px",
@@ -303,33 +389,33 @@ function Member2() {
                     width: '230px',
                     fontSize: '28px',
                     borderRadius: "10px",
-                    marginTop : "50px"
+                    marginTop: "50px"
                 }}
             >
                 บันทึกข้อมูล
             </button>
+            </form>
 
-            
             <div
-            style={{
-              position: "absolute",
-              top: "980px",
-              left: "60px",
-              backgroundColor: "white",
-              borderRadius: "10px",
-              width: "200px",
-              height: "30px",
-              cursor: "pointer",
-              lineHeight: "1.8",
-              textAlign: "center",
-              fontSize: "25px",
-              fontFamily: "Inter",
-            }}
-        >
-            <Link to="/member1" style={{ textDecoration: 'none', color: 'red', width: '100%', height: '100%' }}>
-            ยกเลิกการแก้ไข
-            </Link>
-        </div>
+                style={{
+                    position: "absolute",
+                    top: "980px",
+                    left: "60px",
+                    backgroundColor: "white",
+                    borderRadius: "10px",
+                    width: "200px",
+                    height: "30px",
+                    cursor: "pointer",
+                    lineHeight: "1.8",
+                    textAlign: "center",
+                    fontSize: "25px",
+                    fontFamily: "Inter",
+                }}
+            >
+                <Link to="/member1" style={{ textDecoration: 'none', color: 'red', width: '100%', height: '100%' }}>
+                    ยกเลิกการแก้ไข
+                </Link>
+            </div>
 
 
 
