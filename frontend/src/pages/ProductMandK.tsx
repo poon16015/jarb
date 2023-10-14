@@ -37,10 +37,4 @@ function ProductMandK() {
       </div>
   );
 }
-
-
-
-
-
-
 export default ProductMandK;

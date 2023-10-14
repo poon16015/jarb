@@ -10,7 +10,6 @@ interface DataType {
   name_p :string;
   description :string;
 }
-
 function ProductLaptop() {
   return (
       <div className="container_product" >
@@ -37,10 +36,4 @@ function ProductLaptop() {
       </div>
   );
 }
-
-
-
-
-
-
 export default ProductLaptop;

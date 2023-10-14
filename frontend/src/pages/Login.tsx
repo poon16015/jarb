@@ -1,12 +1,8 @@
 import { FC, useState } from 'react'
-<<<<<<< HEAD
-import { Link } from 'react-router-dom';
-=======
 import { Link, useNavigate } from 'react-router-dom';
 import { login } from '../services/https';
 import { UsersInterface } from '../interfaces/IUser';
 
->>>>>>> 8135de6c4308cc9636b463d26ef12f642bcd77b8
 import jarb from "../assets/jarb icon.png";
 import user1 from "../assets/user (1).png";
 import lock from "../assets/lock.png";
