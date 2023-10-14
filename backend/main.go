@@ -16,7 +16,11 @@ func main() {
 	
 	//register
 	r.POST("/register", controller.Register)
-	
+	//member1
+	r.POST("/member1", controller.Member1)
+	//member2
+	r.PUT("/member2", controller.Member1)
+
 	
 	r.Run()
 }
