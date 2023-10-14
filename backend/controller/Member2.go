@@ -32,6 +32,7 @@ func UpdatedMemberData(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"data": member, "message": "Member updated successfully"})
 }
 
+
 // DELETE /member/:id
 func DeleteMember(c *gin.Context) {
 	id := c.Param("id")
