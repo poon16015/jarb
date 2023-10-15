@@ -4,6 +4,8 @@ import car from "../assets/car.png";
 import visa from "../assets/visa.jpg";
 import master_card from "../assets/master_card.jpg";
 import undertab from "../assets/undertab.png";
+import Navbar from "./Navbar";
+import { Link } from "react-router-dom";
 
 interface DataType {
     key: string;
@@ -57,6 +59,7 @@ interface DataType {
 function ConfirmKasikorn_Credit() {
   return (
     <div>
+      <Navbar/>
       <div
         style={{
           position: 'absolute',
@@ -231,7 +234,9 @@ function ConfirmKasikorn_Credit() {
           fontSize: '18px',
         }}
       >
-        {`<     ชำระเงิน`}
+        <Link to="/payment" style={{ textDecoration: 'none', color: 'white', width: '100%', height: '100%' }}>
+                {'<     ชำระเงิน'}
+            </Link>
       </Button>
       <Button
         type="primary"
