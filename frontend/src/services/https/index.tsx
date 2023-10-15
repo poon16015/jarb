@@ -47,12 +47,12 @@ async function GetProducts() {
     headers: { "Content-Type": "application/json" },
     
   };
-  let res = await fetch(`${apiUrl}/customPC`, requestOptions)
+  let res = await fetch("http://localhost:8080/customPC", requestOptions)
 
 .then((response) => response.json())
 
 .then((res) => {
-
+console.log(res)
 if (res.data) {
 
 return res.data;
@@ -74,3 +74,4 @@ export {
   login,
   GetProducts
 };
+
