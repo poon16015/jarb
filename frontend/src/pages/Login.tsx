@@ -23,16 +23,17 @@ const Login: FC = () => {
     const handleLogin = async () => {
     
     const response = await login(userlogin);
-    if (response.status) {
+    if (response) {
       // ล้าง error state เมื่อสำเร็จ
       setError("");
       // Login navigate to the product page
       navigate("/product");
     } else {
       // Login failed, display error message
-      setError(response.message);
+      setError("Login failed. Please check your email and password.");
     }   
     };
+    
     return (
       // logo and background jarb
       <div>
@@ -183,7 +184,7 @@ const Login: FC = () => {
               cursor: "pointer",
             }}
             >
-          {userlogin.Email && userlogin.Password ? 'LOGIN' : 'กรุณากรอกทั้ง Email และ Password'}
+          {userlogin.Email && userlogin.Password ? 'LOGIN' : 'กรุณากรอก Email และ Password'}
         </button>
         {error && <div style={{position: "absolute",width: "600px",top: "670px",left: "1300px",color: "red",fontFamily: "Prata",fontSize: "24px",textAlign: "right",}}>{error}</div>} {/* แสดงข้อความข้อผิดพลาด */}
         <img

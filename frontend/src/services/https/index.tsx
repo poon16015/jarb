@@ -10,7 +10,7 @@ async function createUser(data: UsersInterface) {
     body: JSON.stringify(data),
   };
 
-  const response = await fetch(`${apiUrl}/register`, requestOptions);
+  const response = await fetch(`${apiUrl}/Register`, requestOptions);
   const responseData = await response.json();
   
   if (response.status === 200) {
@@ -22,24 +22,29 @@ async function createUser(data: UsersInterface) {
   }
 }
 
-async function login(data: UsersInterface) {
+const login = async (data: UsersInterface) => {
   const requestOptions = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
   };
-  const response = await fetch(`${apiUrl}/login`, requestOptions);
-  const responseData = await response.json();
 
-  if (response.status === 200) {
-    // Successful response
-    return { status: true, message: responseData.data };
-  } else {
-    // Error response
-    return { status: false, message: responseData.error };
-  }
-  
-}
+  let res = await fetch(`${apiUrl}/Login`, requestOptions)
+    .then((response) => response.json())
+    .then((res) => {
+      if (res.data) {
+        localStorage.setItem("token", res.data.token);
+        localStorage.setItem("uid", res.data.id);
+        console.log(res.data);
+        return res.data;
+      } else {
+        return false;
+      }
+    });
+
+  return res;
+};
+
 
 async function GetProducts() {
   const requestOptions = {

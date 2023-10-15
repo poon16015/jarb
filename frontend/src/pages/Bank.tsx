@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import { Button, Tabs, Card, Radio } from 'antd';
 import type { RadioChangeEvent } from 'antd';
 import undertab from "../assets/undertab.png";
@@ -12,53 +12,80 @@ import american_express from "../assets/american_express.png";
 import ktc from "../assets/ktc.png";
 import delivery from "../assets/delivery.jpg";
 import Navbar from "./Navbar";
+import { Link, useNavigate } from 'react-router-dom';
 
 const { TabPane } = Tabs;
 
 function Bank() {
-  
   const [value, setValue] = useState<number>(1);
+  const [selectedRadio, setSelectedRadio] = useState<number | null>(null);
+  const navigate = useNavigate();
 
   const onChange = (e: RadioChangeEvent) => {
     console.log('radio checked', e.target.value);
     setValue(e.target.value);
   };
 
+  const handleRadioClick = (radioValue: number) => {
+    setSelectedRadio(radioValue);
+  };
+
+  const handleConfirmationButtonClick = () => {
+    if (selectedRadio === 1) {
+      navigate('/ConfirmQR');
+    } else if (selectedRadio === 2) {
+      navigate('/ConfirmSCB_Bank');
+    } else if (selectedRadio === 3) {
+      navigate('/ConfirmBangkok_Bank');
+    } else if (selectedRadio === 4) {
+      navigate('/ConfirmKasikorn_Bank');
+    } else if (selectedRadio === 5) {
+      navigate('/ConfirmKrungsri_Bank');
+    } else if (selectedRadio === 6) {
+      navigate('/ConfirmKasikorn_Credit');
+    } else if (selectedRadio === 7) {
+      navigate('/ConfirmKTC_Credit');
+    } else if (selectedRadio === 8) {
+      navigate('/ConfirmAmerican_Credit');
+    }
+  };
+
   const QR_CodeClick = useCallback(() => {
-    setValue(1); // กำหนดค่า value เป็น 1 เมื่อคลิกที่รูปภาพ
+    setValue(1);
   }, []);
 
   const bank_scbClick = useCallback(() => {
-    setValue(1); // กำหนดค่า value เป็น 1 เมื่อคลิกที่รูปภาพ
+    setValue(2);
   }, []);
 
   const bank_bangkokClick = useCallback(() => {
-    setValue(2); // กำหนดค่า value เป็น 2 เมื่อคลิกที่รูปภาพ
+    setValue(3);
   }, []);
 
   const bank_kasikornClick = useCallback(() => {
-    setValue(3); // กำหนดค่า value เป็น 3 เมื่อคลิกที่รูปภาพ
+    setValue(4);
   }, []);
 
   const bank_krungsriClick = useCallback(() => {
-    setValue(4); // กำหนดค่า value เป็น 4 เมื่อคลิกที่รูปภาพ
+    setValue(5);
   }, []);
 
   const credit_kasikornClick = useCallback(() => {
-    setValue(1); // กำหนดค่า value เป็น 1 เมื่อคลิกที่รูปภาพ
+    setValue(6);
   }, []);
 
   const ktcClick = useCallback(() => {
-    setValue(2); // กำหนดค่า value เป็น 2 เมื่อคลิกที่รูปภาพ
+    setValue(7);
   }, []);
 
   const american_expressClick = useCallback(() => {
-    setValue(3); // กำหนดค่า value เป็น 3 เมื่อคลิกที่รูปภาพ
+    setValue(8);
   }, []);
 
   return (
     <div>
       <Navbar/>
+      {/* เริ่มต้นส่วนของ UI */}
       <div
         style={{
           position: 'absolute',
@@ -74,10 +101,10 @@ function Bank() {
       <Tabs
         type="card"
         defaultActiveKey="1"
-        
         tabBarGutter={100}
         className="custom-tabs"
       >
+        {/* แท็บที่ 1: QR Code */}
         <TabPane
           tab={
             <span
@@ -94,6 +121,7 @@ function Bank() {
           }
           key="1"
         >
+          {/* รูปภาพ QR Code */}
           <img
             style={{
               position: "absolute",
@@ -106,12 +134,26 @@ function Bank() {
             }}
             alt=""
             src={qr_code}
-            onClick={QR_CodeClick}
+            onClick={() => {
+              QR_CodeClick();
+              handleRadioClick(1);
+            }}
           />
+          
+          {/* Radio Group สำหรับเลือก QR Code */}
           <Radio.Group onChange={onChange} value={value}>
-            <Radio value={1} style={{ marginLeft: '110px', marginTop: '10px', fontSize: '40px' }}></Radio>
+            <Radio
+              value={1}
+              style={{ marginLeft: '110px', marginTop: '10px', fontSize: '40px' }}
+              checked={selectedRadio === 1}
+              onClick={() => {
+                handleRadioClick(1);
+              }}
+            ></Radio>
           </Radio.Group>
         </TabPane>
+
+        {/* แท็บที่ 2: ธนาคาร */}
         <TabPane
           tab={
             <span
@@ -126,9 +168,9 @@ function Bank() {
               ธนาคาร
             </span>
           }
-
           key="2"
         >
+          {/* รูปภาพของธนาคาร */}
           <img
             style={{
               position: "absolute",
@@ -141,7 +183,10 @@ function Bank() {
             }}
             alt=""
             src={bank_scb}
-            onClick={bank_scbClick}
+            onClick={() => {
+              bank_scbClick();
+              handleRadioClick(2);
+            }}
           />
 
           <img
@@ -156,7 +201,10 @@ function Bank() {
             }}
             alt=""
             src={bank_bangkok}
-            onClick={bank_bangkokClick}
+            onClick={() => {
+              bank_bangkokClick();
+              handleRadioClick(3);
+            }}
           />
 
           <img
@@ -171,7 +219,10 @@ function Bank() {
             }}
             alt=""
             src={bank_kasikorn}
-            onClick={bank_kasikornClick}
+            onClick={() => {
+              bank_kasikornClick();
+              handleRadioClick(4);
+            }}
           />
 
           <img
@@ -186,15 +237,52 @@ function Bank() {
             }}
             alt=""
             src={bank_krungsri}
-            onClick={bank_krungsriClick}
+            onClick={() => {
+              bank_krungsriClick();
+              handleRadioClick(5);
+            }}
           />
+
+          {/* เพิ่มรูปภาพธนาคารอื่น ๆ ตามที่ต้องการ */}
+          
+          {/* Radio Group สำหรับเลือกธนาคาร */}
           <Radio.Group onChange={onChange} value={value}>
-            <Radio value={1} style={{ marginLeft: '110px', marginTop: '10px', fontSize: '40px' }}></Radio>
-            <Radio value={2} style={{ marginLeft: '320px', marginTop: '10px', fontSize: '40px' }}></Radio>
-            <Radio value={3} style={{ marginLeft: '322.5px', marginTop: '10px', fontSize: '40px' }}></Radio>
-            <Radio value={4} style={{ marginLeft: '327px', marginTop: '10px', fontSize: '40px' }}></Radio>
+            <Radio
+              value={2}
+              style={{ marginLeft: '110px', marginTop: '10px', fontSize: '40px' }}
+              checked={selectedRadio === 2}
+              onClick={() => {
+                handleRadioClick(2);
+              }}
+            ></Radio>
+            <Radio
+              value={3}
+              style={{ marginLeft: '320px', marginTop: '10px', fontSize: '40px' }}
+              checked={selectedRadio === 3}
+              onClick={() => {
+                handleRadioClick(3);
+              }}
+            ></Radio>
+            <Radio
+              value={4}
+              style={{ marginLeft: '322.5px', marginTop: '10px', fontSize: '40px' }}
+              checked={selectedRadio === 4}
+              onClick={() => {
+                handleRadioClick(4);
+              }}
+            ></Radio>
+            <Radio
+              value={5}
+              style={{ marginLeft: '327px', marginTop: '10px', fontSize: '40px' }}
+              checked={selectedRadio === 5}
+              onClick={() => {
+                handleRadioClick(5);
+              }}
+            ></Radio>
           </Radio.Group>
         </TabPane>
+
+        {/* แท็บที่ 3: บัตรเครดิต */}
         <TabPane
           tab={
             <span
@@ -211,6 +299,7 @@ function Bank() {
           }
           key="3"
         >
+          {/* รูปภาพบัตรเครดิต */}
           <img
             style={{
               position: "absolute",
@@ -223,10 +312,13 @@ function Bank() {
             }}
             alt=""
             src={credit_kasikorn}
-            onClick={credit_kasikornClick}
+            onClick={() => {
+              credit_kasikornClick();
+              handleRadioClick(6);
+            }}
           />
 
-          <img
+<img
             style={{
               position: "absolute",
               top: "62px",
@@ -238,7 +330,10 @@ function Bank() {
             }}
             alt=""
             src={ktc}
-            onClick={ktcClick}
+            onClick={() => {
+              ktcClick();
+              handleRadioClick(7);
+            }}
           />
 
           <img
@@ -253,26 +348,56 @@ function Bank() {
             }}
             alt=""
             src={american_express}
-            onClick={american_expressClick}
+            onClick={() => {
+              american_expressClick();
+              handleRadioClick(8);
+            }}
           />
+
+          {/* เพิ่มรูปภาพบัตรเครดิตอื่น ๆ ตามที่ต้องการ */}
+          
+          {/* Radio Group สำหรับเลือกบัตรเครดิต */}
           <Radio.Group onChange={onChange} value={value}>
-            <Radio value={1} style={{ marginLeft: '110px', marginTop: '10px', fontSize: '40px' }}></Radio>
-            <Radio value={2} style={{ marginLeft: '320px', marginTop: '10px', fontSize: '40px' }}></Radio>
-            <Radio value={3} style={{ marginLeft: '322.5px', marginTop: '10px', fontSize: '40px' }}></Radio>
+            <Radio
+              value={6}
+              style={{ marginLeft: '110px', marginTop: '10px', fontSize: '40px' }}
+              checked={selectedRadio === 6}
+              onClick={() => {
+                handleRadioClick(6);
+              }}
+            ></Radio>
+            <Radio
+              value={7}
+              style={{ marginLeft: '320px', marginTop: '10px', fontSize: '40px' }}
+              checked={selectedRadio === 7}
+              onClick={() => {
+                handleRadioClick(7);
+              }}
+            ></Radio>
+            <Radio
+              value={8}
+              style={{ marginLeft: '322.5px', marginTop: '10px', fontSize: '40px' }}
+              checked={selectedRadio === 8}
+              onClick={() => {
+                handleRadioClick(8);
+              }}
+            ></Radio>
           </Radio.Group>
         </TabPane>
       </Tabs>
 
+      {/* CSS สำหรับปรับแต่งรูปแบบของแท็บ */}
       <style>
         {`
           .ant-tabs.custom-tabs {
             position: absolute;
-            top: 33%;
+            top: 36%;
             left: 1.2%;
           }
-
         `}
       </style>
+
+      {/* รูปภาพด้านล่าง */}
       <img
         style={{
           position: "absolute",
@@ -284,6 +409,8 @@ function Bank() {
         alt=""
         src={undertab}
       />
+
+      {/* ปุ่ม "ที่อยู่จัดส่ง" */}
       <Button
         type="primary"
         style={{
@@ -297,8 +424,12 @@ function Bank() {
           fontSize: '18px',
         }}
       >
-        {`<     ที่อยู่จัดส่ง`}
+        <Link to="/address" style={{ textDecoration: 'none', color: 'white', width: '100%', height: '100%' }}>
+          {`<     ที่อยู่จัดส่ง`}
+        </Link>
       </Button>
+
+      {/* ปุ่ม "ยืนยันการสั่งซื้อ" */}
       <Button
         type="primary"
         style={{
@@ -311,10 +442,12 @@ function Bank() {
           fontFamily: 'Arial, sans-serif',
           fontSize: '18px',
         }}
+        onClick={handleConfirmationButtonClick}
       >
-        {`ยืนยันการสั่งซื้อ    >`}
+        {`ยืนยันการสั่งซื้อ     >`}
       </Button>
 
+      {/* ข้อมูลคำสั่งซื้อ */}
       <Card
         title="ข้อมูลคำสั่งซื้อ"
         bordered={false}
@@ -322,10 +455,10 @@ function Bank() {
           width: 585,
           position: 'absolute',
           left: '1315px',
-          top: '300px', // ปรับตำแหน่งตามที่คุณต้องการ
-          height: '540px', // ปรับความสูงตามที่คุณต้องการ
-          border: '1px solid #ccc', // เพิ่มเส้นขอบด้วย CSS
-          fontSize: '45px', // ปรับขนาดตัวอักษรของข้อความ "ข้อมูลคำสั่งซื้อ"
+          top: '300px',
+          height: '540px',
+          border: '1px solid #ccc',
+          fontSize: '45px',
           fontFamily: 'Bold, Helvetica',
         }}
       >
@@ -333,6 +466,8 @@ function Bank() {
         <p style={{ margin: '8px 0', borderBottom: '1px solid #ccc', fontSize: '20px', fontFamily: 'Arial, Helvetica' }}>ค่าจัดส่ง (บาท)</p>
         <p style={{ margin: '8px 0', borderBottom: '1px solid #ccc', fontSize: '20px', fontFamily: 'Arial, Helvetica', color: 'red' }}>ราคาสุทธิที่ต้องชำระ (บาท)</p>
       </Card>
+
+      {/* รูปภาพด้านขวาล่าง */}
       <img
         style={{
           position: "absolute",

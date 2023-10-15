@@ -8,11 +8,12 @@ import (
 
 type History struct {
   gorm.Model
-  Hid    int
   Time   time.Time
+  Total  int
+  Picitem int
 
   MemberID *uint
   Member Member `gorm:"foreignKey:MemberID"`
-  PaymentID *uint 
-	Payment   Payment `gorm:"foreignKey:PaymentID"`
+  CartID *uint
+  Cart Cart `gorm:"foreignKey:CartID"`
 }
