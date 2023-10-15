@@ -93,9 +93,6 @@ function Cart() {
         <div style={{ position: "absolute", top: "130px", left: "621px" }}>
           จำนวน
         </div>
-        <div style={{ position: "absolute", top: "130px", left: "760px" }}>
-          ลบ
-        </div>
       </div>
       <div
         style={{

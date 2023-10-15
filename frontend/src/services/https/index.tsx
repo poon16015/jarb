@@ -10,7 +10,7 @@ async function createUser(data: UsersInterface) {
     body: JSON.stringify(data),
   };
 
-  const response = await fetch(`${apiUrl}/register`, requestOptions);
+  const response = await fetch(`${apiUrl}/Register`, requestOptions);
   const responseData = await response.json();
   
   if (response.status === 200) {
@@ -29,7 +29,7 @@ const login = async (data: UsersInterface) => {
     body: JSON.stringify(data),
   };
 
-  let res = await fetch(`${apiUrl}/login`, requestOptions)
+  let res = await fetch(`${apiUrl}/Login`, requestOptions)
     .then((response) => response.json())
     .then((res) => {
       if (res.data) {

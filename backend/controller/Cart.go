@@ -9,12 +9,21 @@ import (
 func GetCart(c *gin.Context) {
 
     var cart entity.Cart
-	id := c.Param("id")
-	if err := entity.DB().Raw("SELECT * FROM products WHERE id=?", id).Scan(&cart).Error; err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-		return
-	}
-	c.JSON(http.StatusOK, gin.H{"data": cart})
+	id := c.Param("id") 
+    if err := entity.DB().Raw("SELECT Picitem FROM carts WHERE id = ?", id).Scan(&cart).Error; err != nil {
+        c.JSON(http.StatusBadRequest, gin.H{"error": "Product not found"})
+        return
+    }
+
+    // ดึงข้อมูล Product โดยใช้ picitem
+    var product entity.Product
+    if err := entity.DB().Where("id = ?", cart.Picitem).Scan(&product).Error; err != nil {
+        c.JSON(http.StatusBadRequest, gin.H{"error": "Product not found"})
+        return
+    }
+
+    // ส่งข้อมูล Product ไปยัง UI
+    c.JSON(http.StatusOK, gin.H{"data": product})
 }
 
 // DeleteCart
