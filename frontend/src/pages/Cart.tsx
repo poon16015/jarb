@@ -3,7 +3,16 @@ import twohr from "../assets/2hr.png";
 import undertab from "../assets/undertab.png";
 import Navbar from "./Navbar";
 
+import { DeleteCart } from '../services/https/cartindex';
+
+
 function Cart() {
+  const handleDeleteCart = async () => {
+    const result = await DeleteCart();
+    if (result) {
+      window.location.reload();
+    }
+  };
     return (
         <div
       style={{
@@ -224,6 +233,20 @@ function Cart() {
         alt=""
         src={undertab}
       />
+      <button style={{
+                position: "absolute",
+                top: "395px",
+                left: "810px",
+                width: "60px",
+                height: "25px",
+                backgroundColor: "red",
+                cursor: "pointer",
+                fontSize: "10px",  
+                textAlign: "center",
+            }} 
+        onClick={handleDeleteCart}>
+        Delete Cart
+      </button>
     </div>
     );
   }
