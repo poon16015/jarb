@@ -10,7 +10,7 @@ async function GetProduct() {
         },
     };
 
-    let res = await fetch(`${apiUrl}/products`, requestOptions)
+    let res = await fetch(`${apiUrl}/product`, requestOptions)
     .then((response) => response.json())
     .then((res) => {
         if (res.data){

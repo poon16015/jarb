@@ -1,7 +1,7 @@
 import React from "react";
 import "../style/sitebarStyle.css"
 import { Link } from "react-router-dom";
- 
+
 
 function Sitebar() {
     return(
