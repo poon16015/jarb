@@ -1,12 +1,33 @@
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import twohr from "../assets/2hr.png";
 import undertab from "../assets/undertab.png";
 import Navbar from "./Navbar";
 
-import { DeleteCart } from '../services/https/cartindex';
+import { DeleteCart,GetCart  } from '../services/https/cartindex';
 
 
 function Cart() {
+  
+  type ProductData = {
+    id: number;
+    NameP: string;
+    Price: number;
+    // ... other properties
+  };
+  const [productData, setProductData] = useState<ProductData | null>(null);
+  const fetchData = async () => {
+    const data = await GetCart();
+    if (data) {
+      setProductData(data);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  
   const handleDeleteCart = async () => {
     const result = await DeleteCart();
     if (result) {
@@ -98,9 +119,6 @@ function Cart() {
         </div>
         <div style={{ position: "absolute", top: "130px", left: "500px" }}>
           ราคา
-        </div>
-        <div style={{ position: "absolute", top: "130px", left: "621px" }}>
-          จำนวน
         </div>
       </div>
       <div
@@ -247,6 +265,21 @@ function Cart() {
         onClick={handleDeleteCart}>
         Delete Cart
       </button>
+      {productData && (
+        <div style={{ position: "absolute", top: "130px", left: "177px" }}>
+          รหัสสินค้า: {productData.id}
+        </div>
+      )}
+      {productData && (
+        <div style={{ position: "absolute", top: "130px", left: "345px" }}>
+          ชื่อสินค้า: {productData.NameP}
+        </div>
+      )}
+      {productData && (
+        <div style={{ position: "absolute", top: "130px", left: "500px" }}>
+          ราคา: {productData.Price}
+        </div>
+      )}
     </div>
     );
   }
