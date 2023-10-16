@@ -21,6 +21,12 @@ import ConfirmKrungsri_Bank from './pages/ConfirmKrungsri_Bank';
 import ConfirmKasikorn_Credit from './pages/ConfirmKasikorn_Credit';
 import ConfirmKTC_Credit from './pages/ConfirmKTC_Credit';
 import ConfirmAmerican_Credit from './pages/ConfirmAmerican_Credit';
+import ProductLaptop1 from './pages/ProductLaptop1';
+import ProductMandK1 from './pages/ProductMandK1';
+import ProductMonitor1 from './pages/ProductMonitor1';
+import ProductProcesser1 from './pages/ProductProcesser1';
+import ProductStoreage1 from './pages/ProductStoreage1';
+
 
 function App() {
   return (
@@ -30,6 +36,12 @@ function App() {
       <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/product" element={<Product />} />
+        <Route path='/productLaptop1' element={<ProductLaptop1 />}/>
+        <Route path='/ProductMandK1' element={<ProductMandK1 />}/>
+        <Route path='/productMonitor1' element={<ProductMonitor1 />}/>
+        <Route path='/productProcesser1' element={<ProductProcesser1 />}/>
+        <Route path='/productStroage1' element={<ProductStoreage1 />}/>
+
         <Route path="/cart" element={<Cart />} />
         <Route path="/address" element={<Address />} />
         <Route path="/addaddress" element={<AddAddress />} />

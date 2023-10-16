@@ -31,22 +31,10 @@ import { GetProducts } from "../services/https";
 
 var Ncpu = ""
 var Ngpu = ""
-var Nssd = ""
-var Nhdd = ""
-var NmainB = ""
-var Nmoni = ""
-var NMouse = ""
-var NkeyB = ""
-var NpowerS = ""
-var Ncooller = ""
-var NCcase =""
- 
-var pricetotal = ""
+
 
 const CustomPC = () => {
-  const JarbClick = useCallback(() => {
-    //  sync "product" to the project
-  }, []);
+
   const ContactClick = useCallback(() => {
     window.open("https://www.youtube.com/watch?v=xvFZjo5PgG0");
   }, []);
@@ -73,7 +61,7 @@ const CustomPC = () => {
   
   
   
-  const [products, setProducts] = useState<ProductInterface[]>([]);
+  const [products, setProducts] = useState<Partial<ProductInterface[]>>([]);
     
     
     const getProducts = async () => {
@@ -81,8 +69,9 @@ const CustomPC = () => {
     let res = await GetProducts();
     
     if (res) {
-    
+      
       setProducts(res);
+      
     
     }
     
@@ -120,19 +109,19 @@ const CustomPC = () => {
       </div>
       
       <div className='boxcart'>
-      <Link to="/register">
+      <Link to="/cart">
               <img alt="" src={cart}/> 
       </Link>
-      <Link to="/register" style={{textDecoration: "none"}}>
+      <Link to="/cart" style={{textDecoration: "none"}}>
               <p style={{marginLeft:"-30px",textDecoration: "none",color:'white'}}>cart</p>
       </Link>
         <span style={{width:'10%'}}></span>
         <img alt="" src={point} style={{width:'3%'}}/>
         <span style={{width:'10%'}}></span>
-        <Link to="/register">
+        <Link to="/member1">
         <img alt="" src={account_icon} style={{width:'70%'}}/>
         </Link>
-        <Link to="/register" style={{textDecoration: "none"}}>
+        <Link to="/member1" style={{textDecoration: "none"}}>
               <p style={{marginLeft:"0px",textDecoration: "none",color:'white'}}>my acc</p>
         </Link>
       </div>    

@@ -3,6 +3,7 @@ import product1 from '../assets/laptop.webp';
 import "../style/productStyle.css"
 import { ProductInterface } from '../interfaces/IProduct';
 import {GetProduct} from '../services/https/productIndex';
+import { Link } from 'react-router-dom';
 function Product() {
     const [products, setProdcuts] = useState<ProductInterface[]>([]);
     const getProduct = async () => {
@@ -38,6 +39,7 @@ function Product() {
         </div>      
       </div>
      
+      
   );
 }
 export default Product;
