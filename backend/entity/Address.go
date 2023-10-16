@@ -6,11 +6,10 @@ type Address struct {
   gorm.Model
 
   Name     string
-  Surname  string
+  HouseNumber  string
   Province string
   District string
-  Locality string
-  Local    string
+  SubDistrict string
   ZipCode  int
   Tel      int
 
