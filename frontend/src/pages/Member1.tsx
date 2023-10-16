@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import log_out from "../assets/log-out.png";
 import user3 from "../assets/user (3).png";
 import { useNavigate } from "react-router-dom";
-import { MemberInterface } from "../interfaces/IMember";
 import {getMember} from "../services/https/Member"
 
 function Member1() {
@@ -25,8 +24,8 @@ function Member1() {
     const fetchMemberData = async () => {
       try {
         // Call your getMember function to fetch member information
-        const memberId = "1";  // Replace with the actual member ID
-        const response = await getMember(memberId);
+        const memberId = "";  // Replace with the actual member ID
+        const response = await getMember(id);
   
         if (response.status) {
           // Member information fetched successfully

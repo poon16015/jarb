@@ -15,9 +15,13 @@ func main() {
 	//register
 	r.POST("/register", controller.Register)
 	//member1
-	r.POST("/member1", controller.Member1)
+	
+	r.GET("/members/:id", controller.GetMember)
+
 	//member2
-	r.PUT("/member2", controller.Member1)
+	r.PUT("/members/:id", controller.UpdatedMemberData)
+	r.DELETE("/members/:id", controller.DeleteMember)
+
 
 	//login
 	r.POST("/login", controller.Login)
