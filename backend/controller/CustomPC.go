@@ -10,9 +10,9 @@ import (
 
 func GetProductCustom(c *gin.Context) {
 	var Products  []entity.Product
-	TypeID := c.Param("ProductTypeID")
+	// ProductTypeID := c.Param("ProductTypeID")
 	
-	if err :=entity.DB().Raw("SELECT * FROM Products WHERE ProductTypeID = ?",TypeID).Scan(&Products).Error; err != nil{
+	if err :=entity.DB().Raw("SELECT * FROM Products").Scan(&Products).Error; err != nil{
 
 	c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 	return

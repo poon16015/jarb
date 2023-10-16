@@ -17,6 +17,5 @@ type Member struct {
 	Addresses []Address `gorm:"foreignKey:MemberID"`
 	Histories []History `gorm:"foreignKey:MemberID"`
 	Carts     []Cart    `gorm:"foreignKey:MemberID"`
-	Payments  []Payment `gorm:"foreignKey:MemberID"`
 
 }

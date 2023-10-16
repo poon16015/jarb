@@ -13,6 +13,7 @@ func main() {
 	r.Use(CORSMiddleware())
 	
 	//register
+<<<<<<< HEAD
 	r.POST("/register", controller.Register)
 	//member1
 	
@@ -22,12 +23,16 @@ func main() {
 	r.PUT("/members/:id", controller.UpdatedMemberData)
 	r.DELETE("/members/:id", controller.DeleteMember)
 
+=======
+	r.POST("/Register", controller.Register)
+	
+>>>>>>> c5bb060a87e09007a0aeabdd7b399165a549fa29
 
 	//login
-	r.POST("/login", controller.Login)
+	r.POST("/Login", controller.Login)
 	//cart
-	r.GET("/cart/:id", controller.GetCart)
-	r.DELETE("/cart/:id", controller.DeleteCart)
+	r.GET("/GetCart/:id", controller.GetCart)
+	r.DELETE("/DelCart/:id", controller.DeleteCart)
 	
 	r.Run()
 }

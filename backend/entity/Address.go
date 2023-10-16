@@ -17,5 +17,4 @@ type Address struct {
   MemberID *uint
   Member Member `gorm:"foreignKey:MemberID"`
 
-  Payments []Payment `gorm:"foreignKey:AddressID"`
 }

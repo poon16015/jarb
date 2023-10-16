@@ -5,9 +5,6 @@ import (
 	"github.com/poon16015/jarb/entity"
 	"net/http"
 )
-
-
-
 // GET /members/:id
 func GetMember(c *gin.Context) {
 	var member entity.Member
@@ -22,7 +19,3 @@ func GetMember(c *gin.Context) {
 
 	c.JSON(http.StatusOK, gin.H{"data": member})
 }
-
-
-
-

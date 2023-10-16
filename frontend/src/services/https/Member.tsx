@@ -1,9 +1,6 @@
-import { MemberInterface } from '../../interfaces/IMember';
+import { MemberInterface } from "../../interfaces/IMember";
 
 const apiUrl = "http://localhost:8080";
-
-
-
 
 async function createMember(data: MemberInterface) {
   try {
@@ -37,9 +34,9 @@ async function getMember() {
       "Content-Type": "application/json",
     },
   };
-  
+
   try {
-    const response = await fetch(`${apiUrl}/getMember/${id}`,requestOptions);
+    const response = await fetch(`${apiUrl}/getMember/${id}`, requestOptions);
     const responseData = await response.json();
 
     if (response.status === 200) {
@@ -73,14 +70,16 @@ async function updatedMemberData(data: MemberInterface) {
   return res;
 }
 
-
 async function deleteMember(memberId: number) {
   const requestOptions = {
     method: "DELETE",
   };
 
   try {
-    const response = await fetch(`${apiUrl}/deleteMember/${memberId}`, requestOptions); //*****
+    const response = await fetch(
+      `${apiUrl}/deleteMember/${memberId}`,
+      requestOptions
+    ); //*****
     const responseData = await response.json();
 
     if (response.status === 200) {
@@ -95,4 +94,4 @@ async function deleteMember(memberId: number) {
   }
 }
 
-export { createMember,getMember, updatedMemberData, deleteMember };
+export { createMember, getMember, updatedMemberData, deleteMember };

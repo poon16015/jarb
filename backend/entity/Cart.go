@@ -5,6 +5,7 @@ import "gorm.io/gorm"
 type Cart struct {
   gorm.Model
   Picitem int
+  Total int
   
   MemberID *uint
   Member Member `gorm:"foreignKey:MemberID"`

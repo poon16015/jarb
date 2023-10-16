@@ -5,5 +5,6 @@ export interface ProductInterface {
     Name_p? :string;
     Description? :string;
     Incompatible?: string;
+    
   
   }

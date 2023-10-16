@@ -3,6 +3,8 @@ import type { ColumnsType } from 'antd/es/table';
 import car from "../assets/car.png";
 import kasikorn from "../assets/kasikorn.png";
 import undertab from "../assets/undertab.png";
+import Navbar from "./Navbar";
+import { Link } from "react-router-dom";
 
 interface DataType {
     key: string;
@@ -56,6 +58,7 @@ interface DataType {
 function ConfirmKasikorn_Bank() {
   return (
     <div>
+      <Navbar/>
       <div
         style={{
           position: 'absolute',
@@ -211,7 +214,7 @@ function ConfirmKasikorn_Bank() {
               left: "175px",
               fontSize: '16px',
             }}>
-            เลขที่บัญชี : xxx-x-xxxxx-x
+            เลขที่บัญชี : 418-2-83000-9
             </div> 
       <Button
         type="primary"
@@ -226,7 +229,9 @@ function ConfirmKasikorn_Bank() {
           fontSize: '18px',
         }}
       >
-        {`<     ชำระเงิน`}
+        <Link to="/payment" style={{ textDecoration: 'none', color: 'white', width: '100%', height: '100%' }}>
+                {'<     ชำระเงิน'}
+            </Link>
       </Button>
       <Button
         type="primary"

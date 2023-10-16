@@ -27,7 +27,6 @@ func SetupDatabase() {
     &CustomPC{},
     &History{},
     &Cart{},
-    &Payment{},
   )
   db = database
 
