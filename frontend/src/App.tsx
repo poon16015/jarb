@@ -26,7 +26,7 @@ import ProductMandK1 from './pages/ProductMandK1';
 import ProductMonitor1 from './pages/ProductMonitor1';
 import ProductProcesser1 from './pages/ProductProcesser1';
 import ProductStoreage1 from './pages/ProductStoreage1';
-
+import CustomPC from './pages/CustomPC';
 
 function App() {
   return (
@@ -41,7 +41,7 @@ function App() {
         <Route path='/productMonitor1' element={<ProductMonitor1 />}/>
         <Route path='/productProcesser1' element={<ProductProcesser1 />}/>
         <Route path='/productStroage1' element={<ProductStoreage1 />}/>
-
+        <Route path='/customPC' element={<CustomPC />}/>
         <Route path="/cart" element={<Cart />} />
         <Route path="/address" element={<Address />} />
         <Route path="/addaddress" element={<AddAddress />} />

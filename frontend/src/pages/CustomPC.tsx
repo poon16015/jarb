@@ -49,17 +49,17 @@ const CustomPC = () => {
   };
 
   
-  const [TypeP,setTypeP] = useState('');
+  const [TypeP,setTypeP] = useState(Number);
   
   const selectType5 = () => {
-    setTypeP("pType5");
+    setTypeP(5);
   };
 
   const selectType2 = () => {
-    setTypeP("pType2");
+    setTypeP(2);
   };
   
-  
+
   
   const [products, setProducts] = useState<Partial<ProductInterface[]>>([]);
     
@@ -335,14 +335,14 @@ const CustomPC = () => {
           <div className='prouct-container'>
               <div className='prouct-item'>
               <div className='product-detail'>
-                  fdfadfadgggggggggkkkkkkkkkkgggggggggggggggggggggggdfaggdggggggg
+                  jarbProduct 1
               </div>
                 
                 <div className='product-image'>
                     <img  src={logo} alt="Logo" style={{width:'100%'}}/>
                 </div>
                 <div className='pricegrid'>
-                  ราคา {Ncpu}
+                  ราคา 9000
                   
                 </div>
                 <div className='selectB'>
