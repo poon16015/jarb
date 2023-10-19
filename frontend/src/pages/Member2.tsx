@@ -7,27 +7,12 @@ import { updatedMemberData } from "../services/https/Member";
 import { useNavigate } from "react-router-dom";
 import { MemberInterface } from "../interfaces/IMember";
 
-async function Member2() {
+function Member2() {
     //อัปเดตตัวแปรสถานะ เพื่อเก็บค่าอินพุตของแบบฟอร์ม
     
     const navigate = useNavigate(); // ใช้ navigate เพื่อเปลี่ยนหน้า
    
-    const apiUrl = "http://localhost:8080";
-    
 
-    const [editmember, setMember] = useState<Partial<MemberInterface>>({});
-
-    const response = await updatedMemberData(editmember);
-    if (response) {
-     
-      navigate("/Member1");
-    } else {
-     
-    }   
-
-   
-     
-    
       //ทิ้งไว้เฉยๆกันerror
     function handleSubmit(event: FormEvent<HTMLFormElement>): void {
         throw new Error("Function not implemented.");
