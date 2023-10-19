@@ -25,7 +25,7 @@ function Member1() {
     try {
       // Call your getMember function to fetch member information
       const memberId = ""; // Replace with the actual member ID
-      const response = await getMember(id);
+      const response = await getMember();
 
       if (response.status) {
         // Member information fetched successfully

@@ -2,12 +2,12 @@ import Navbar from "./Navbar";
 import log_out from "../assets/log-out.png";
 import user3 from "../assets/user (3).png";
 import { Link } from 'react-router-dom';
-import React, { useState, useEffect } from "react";
-import { updatedMemberData } from "../services/https";
+import React, { useState, useEffect, FormEvent } from "react";
+import { updatedMemberData } from "../services/https/Member";
 import { useNavigate } from "react-router-dom";
 import { MemberInterface } from "../interfaces/IMember";
 
-function Member2() {
+async function Member2() {
     //อัปเดตตัวแปรสถานะ เพื่อเก็บค่าอินพุตของแบบฟอร์ม
     
     const navigate = useNavigate(); // ใช้ navigate เพื่อเปลี่ยนหน้า
@@ -24,11 +24,15 @@ function Member2() {
     } else {
      
     }   
-    };
+
    
      
     
-      
+      //ทิ้งไว้เฉยๆกันerror
+    function handleSubmit(event: FormEvent<HTMLFormElement>): void {
+        throw new Error("Function not implemented.");
+    }
+
     return (
         <div>
             <Navbar />
