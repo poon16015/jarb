@@ -22,7 +22,8 @@ func main() {
 	r.PUT("/members/:id", controller.UpdatedMemberData)
 	r.DELETE("/members/:id", controller.DeleteMember)
 
-
+	//product
+	r.GET("/Getproduct",controller.GetProduct)
 	//login
 	r.POST("/Login", controller.Login)
 	//cart
