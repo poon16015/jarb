@@ -1,7 +1,7 @@
 import Sitebar from './Sitebar';
 import Navbar from './Navbar';
 import "../style/productStyle.css"
-import ProductLaptop from './ProductLaptop';
+import ProductStoreage from './ProductStoreage';
 
 function ProductStoreage1() {
   return (
@@ -9,7 +9,7 @@ function ProductStoreage1() {
       <div>
          <Navbar/>
          <Sitebar/>
-         <ProductLaptop/>   
+         <ProductStoreage/>   
       </div>
   );
 }

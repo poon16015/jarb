@@ -7,21 +7,15 @@ import (
 )
 // GET /product/:id
 func GetProduct(c *gin.Context) {
-	var product entity.Product
-	id := c.Param("id")	
-	if err := entity.DB().Raw("SELECT * FROM Product WHERE id = ?", id).Scan(&product).Error; err != nil {	
+	var Products  []entity.Product
+	if err :=entity.DB().Raw("SELECT * FROM Product ").Scan(&Products).Error; err != nil{
+
 	c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 	return
-	}
-	c.JSON(http.StatusOK, gin.H{"data": product})
-	}
-	// Get Products
-	func ListProduct(c *gin.Context){
-		var products []entity.Product
-		if err := entity.DB().Raw("SELECT *FROM Product").Scan(&products).Error; err != nil{
-			c.JSON(http.StatusBadRequest, gin.H{"error":err.Error()})
-			return
-		}
-		c.JSON(http.StatusOK, gin.H{"data":products})
-	}
+}
+	
+	c.JSON(http.StatusOK, gin.H{"data": Products})
+	
+}
+	
 	

@@ -4,12 +4,7 @@ import a1 from "../assets/1.png" ;
 import { ProductInterface } from '../interfaces/IProduct';
 import {GetProduct} from '../services/https/productIndex';
 
-interface DataType {
-  imgp : string ;
-  price : number;
-  name_p :string;
-  description :string;
-}
+
 
 function ProductMonitor() {
   return (
