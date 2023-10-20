@@ -19,17 +19,10 @@ function Member1() {
     const [memberData, setMemberData] = useState<memberData | null>(null);
     const [error, setError] = useState(false);
 
-<<<<<<< HEAD
     useEffect(() => {
       fetchMemberData();
     }, []);
-=======
-  const fetchMemberData = async () => {
-    try {
-      // Call your getMember function to fetch member information
-      const memberId = ""; // Replace with the actual member ID
-      const response = await getMember();
->>>>>>> ad61737c2e73060e70c99a815118d27a1106979e
+
 
     const fetchMemberData = async () => {
       try {
