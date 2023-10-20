@@ -1,14 +1,20 @@
 import Navbar from "./Navbar";
 import log_out from "../assets/log-out.png";
 import user3 from "../assets/user (3).png";
+<<<<<<< HEAD
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
+=======
+import { Link } from 'react-router-dom';
+import React, { useState, useEffect, FormEvent } from "react";
+>>>>>>> ad61737c2e73060e70c99a815118d27a1106979e
 import { updatedMemberData } from "../services/https/Member";
 import { useNavigate } from "react-router-dom";
 import { MemberInterface } from "../interfaces/IMember";
 import { DeleteMember } from "../services/https/Member";
 
 function Member2() {
+<<<<<<< HEAD
   //อัปเดตตัวแปรสถานะ เพื่อเก็บค่าอินพุตของแบบฟอร์ม
 
   const navigate = useNavigate(); // ใช้ navigate เพื่อเปลี่ยนหน้า
@@ -30,6 +36,18 @@ function Member2() {
       }
     };
 
+=======
+    //อัปเดตตัวแปรสถานะ เพื่อเก็บค่าอินพุตของแบบฟอร์ม
+    
+    const navigate = useNavigate(); // ใช้ navigate เพื่อเปลี่ยนหน้า
+   
+
+      //ทิ้งไว้เฉยๆกันerror
+    function handleSubmit(event: FormEvent<HTMLFormElement>): void {
+        throw new Error("Function not implemented.");
+    }
+
+>>>>>>> ad61737c2e73060e70c99a815118d27a1106979e
     return (
       <div>
         <Navbar />
