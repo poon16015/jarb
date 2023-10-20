@@ -2,28 +2,6 @@ import { MemberInterface } from "../../interfaces/IMember";
 
 const apiUrl = "http://localhost:8080";
 
-async function createMember(data: MemberInterface) {
-  try {
-    const requestOptions = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    };
-
-    const response = await fetch(`${apiUrl}/members`, requestOptions);
-    const responseData = await response.json();
-
-    if (response.status === 200) {
-      // Successful response
-      return { status: true, message: responseData.data };
-    } else {
-      // Error response
-      return { status: false, message: responseData.error };
-    }
-  } catch (error) {
-    throw new Error("An error occurred while creating a member.");
-  }
-}
 
 async function getMember() {
   const id = localStorage.getItem("uid");
@@ -70,14 +48,14 @@ async function updatedMemberData(data: MemberInterface) {
   return res;
 }
 
-async function deleteMember(memberId: number) {
+async function DeleteMember(id: Number | undefined) {
   const requestOptions = {
     method: "DELETE",
   };
 
   try {
     const response = await fetch(
-      `${apiUrl}/deleteMember/${memberId}`,
+      `${apiUrl}/deleteMember/${id}`,
       requestOptions
     ); //*****
     const responseData = await response.json();
@@ -94,4 +72,5 @@ async function deleteMember(memberId: number) {
   }
 }
 
-export { createMember, getMember, updatedMemberData, deleteMember };
+
+export {  getMember, updatedMemberData, DeleteMember };

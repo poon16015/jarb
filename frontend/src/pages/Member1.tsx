@@ -3,48 +3,53 @@ import Navbar from "./Navbar";
 import { Link } from "react-router-dom";
 import log_out from "../assets/log-out.png";
 import user3 from "../assets/user (3).png";
-import { useNavigate } from "react-router-dom";
 import { getMember } from "../services/https/Member";
+import { DeleteMember } from "../services/https/Member";
 
 function Member1() {
-  const [success, setSuccess] = useState(false);
-  const [error, setError] = useState(false);
-  const navigate = useNavigate(); // ใช้ navigate เพื่อเปลี่ยนหน้า
-  const [Name, setName] = useState("");
-  const [Dob, setDob] = useState("");
-  const [Gender, setGender] = useState("");
-  const [Tel, setTel] = useState("");
-  const [Email, setEmail] = useState("");
+    type memberData = {
+      Name : string;
+      Dob : string;
+      Gender : string;
+      Tel : string;
+      Email : string;
 
-  useEffect(() => {
-    // Fetch member information when the component mounts
-    fetchMemberData();
-  }, []);
+    };
+    
+    const [memberData, setMemberData] = useState<memberData | null>(null);
+    const [error, setError] = useState(false);
 
-  const fetchMemberData = async () => {
-    try {
-      // Call your getMember function to fetch member information
-      const memberId = ""; // Replace with the actual member ID
-      const response = await getMember(id);
+    useEffect(() => {
+      fetchMemberData();
+    }, []);
 
-      if (response.status) {
-        // Member information fetched successfully
-        const memberData = response.data;
-        setName(memberData.name);
-        setDob(memberData.dob);
-        setGender(memberData.gender);
-        setTel(memberData.tel);
-        setEmail(memberData.email);
-      } else {
-        // Error fetching member information
+    const fetchMemberData = async () => {
+      try {
+        // Call your getMember function to fetch member information
+        const response = await getMember(); // Assuming getMember is a function that fetches member data
+  
+        if (response.status === 200) {
+          // Member information fetched successfully (adjust the status code accordingly)
+          const data = response.data as memberData; // Cast the response to the MemberData type
+          setMemberData(data);
+        } else {
+          // Error fetching member information
+          setError(true);
+        }
+      } catch (error) {
+        // Handle any errors that occur during the fetch
+        console.error("Error fetching member information:", error);
         setError(true);
       }
-    } catch (error) {
-      // Handle any errors that occur during the fetch
-      console.error("Error fetching member information:", error);
-      setError(true);
-    }
-  };
+    };
+
+    const handleDeleteMember = async () => {
+      const result = await DeleteMember();
+      if (result) {
+        window.location.reload();
+      }
+    }; 
+  
 
   return (
     <div>
@@ -162,7 +167,7 @@ function Member1() {
           fontSize: "20px",
           fontFamily: "Inter",
         }}
-      >
+        onClick={handleDeleteMember}>
         ลบบัญชี
       </div>
 
