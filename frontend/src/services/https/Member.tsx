@@ -1,33 +1,20 @@
-import { MemberInterface } from '../../interfaces/IMember';
+import { MemberInterface } from "../../interfaces/IMember";
 
 const apiUrl = "http://localhost:8080";
 
-async function createMember(data: MemberInterface) {
+
+async function getMember() {
+  const id = localStorage.getItem("uid");
+  const requestOptions = {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+      "Content-Type": "application/json",
+    },
+  };
+
   try {
-    const requestOptions = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    };
-
-    const response = await fetch(`${apiUrl}/members`, requestOptions);
-    const responseData = await response.json();
-
-    if (response.status === 200) {
-      // Successful response
-      return { status: true, message: responseData.data };
-    } else {
-      // Error response
-      return { status: false, message: responseData.error };
-    }
-  } catch (error) {
-    throw new Error("An error occurred while creating a member.");
-  }
-}
-
-async function getMember(memberId: string) {
-  try {
-    const response = await fetch(`${apiUrl}/members/${memberId}`);
+    const response = await fetch(`${apiUrl}/getMember/${id}`, requestOptions);
     const responseData = await response.json();
 
     if (response.status === 200) {
@@ -41,36 +28,36 @@ async function getMember(memberId: string) {
     throw new Error("An error occurred while fetching member information.");
   }
 }
-async function updatedMemberData(memberId: number, data: MemberInterface) {
+async function updatedMemberData(data: MemberInterface) {
   const requestOptions = {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
   };
 
-  try {
-    const response = await fetch(`${apiUrl}/member2/${memberId}`, requestOptions);
-    const responseData = await response.json();
+  let res = await fetch(`${apiUrl}/updatedMemberData`, requestOptions)
+    .then((response) => response.json())
+    .then((res) => {
+      if (res.data) {
+        return { status: true, message: res.data };
+      } else {
+        return { status: false, message: res.error };
+      }
+    });
 
-    if (response.status === 200) {
-      // Successful response
-      return { status: true, message: responseData.data };
-    } else {
-      // Error response
-      return { status: false, message: responseData.error };
-    }
-  } catch (error) {
-    throw error;
-  }
+  return res;
 }
 
-async function deleteMember(memberId: number) {
+async function DeleteMember(id: Number | undefined) {
   const requestOptions = {
     method: "DELETE",
   };
 
   try {
-    const response = await fetch(`${apiUrl}/member/${memberId}`, requestOptions); //*****
+    const response = await fetch(
+      `${apiUrl}/deleteMember/${id}`,
+      requestOptions
+    ); //*****
     const responseData = await response.json();
 
     if (response.status === 200) {
@@ -85,4 +72,5 @@ async function deleteMember(memberId: number) {
   }
 }
 
-export { createMember,getMember, updatedMemberData, deleteMember };
+
+export {  getMember, updatedMemberData, DeleteMember };

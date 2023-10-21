@@ -14,8 +14,16 @@ func main() {
 	
 	//register
 	r.POST("/Register", controller.Register)
+	//member1
 	
+	r.GET("/members/:id", controller.GetMember)
 
+	//member2
+	r.PUT("/members/:id", controller.UpdatedMemberData)
+	r.DELETE("/members/:id", controller.DeleteMember)
+
+	//product
+	r.GET("/Getproduct",controller.GetProduct)
 	//login
 	r.POST("/Login", controller.Login)
 	//cart

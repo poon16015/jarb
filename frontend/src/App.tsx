@@ -40,7 +40,7 @@ function App() {
         <Route path='/ProductMandK1' element={<ProductMandK1 />}/>
         <Route path='/productMonitor1' element={<ProductMonitor1 />}/>
         <Route path='/productProcesser1' element={<ProductProcesser1 />}/>
-        <Route path='/productStroage1' element={<ProductStoreage1 />}/>
+        <Route path='/ProductStoreage1' element={<ProductStoreage1 />}/>
         <Route path='/customPC' element={<CustomPC />}/>
         <Route path="/cart" element={<Cart />} />
         <Route path="/address" element={<Address />} />
