@@ -156,7 +156,7 @@ const CustomPC = () => {
                Total
                </div>
             <div className='pricetotal'>
-            <span className='total'>  999999  </span>
+            <span className='total'>  9000  </span>
           </div> 
         </div>
 
