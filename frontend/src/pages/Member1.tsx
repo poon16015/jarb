@@ -3,7 +3,7 @@ import Navbar from "./Navbar";
 import { Link } from "react-router-dom";
 import log_out from "../assets/log-out.png";
 import user3 from "../assets/user (3).png";
-import { getMember } from "../services/https/Member";
+import { GetMember } from "../services/https/Member";
 import { DeleteMember } from "../services/https/Member";
 
 function Member1() {
@@ -17,39 +17,28 @@ function Member1() {
     };
     
     const [memberData, setMemberData] = useState<memberData | null>(null);
-    const [error, setError] = useState(false);
+
+    const fetchMemberData = async () => {
+      
+      const data = await GetMember();
+      if (data) {
+        setMemberData(memberData);
+      }
+    };
 
     useEffect(() => {
       fetchMemberData();
     }, []);
 
 
-    const fetchMemberData = async () => {
-      try {
-        // Call your getMember function to fetch member information
-        const response = await getMember(); // Assuming getMember is a function that fetches member data
-  
-        if (response.status === 200) {
-          // Member information fetched successfully (adjust the status code accordingly)
-          const data = response.data as memberData; // Cast the response to the MemberData type
-          setMemberData(data);
-        } else {
-          // Error fetching member information
-          setError(true);
-        }
-      } catch (error) {
-        // Handle any errors that occur during the fetch
-        console.error("Error fetching member information:", error);
-        setError(true);
-      }
-    };
+    
 
     const handleDeleteMember = async () => {
-      const result = await DeleteMember ();
+      const result = await DeleteMember(Number("id"));
       if (result) {
         window.location.reload();
       }
-    }; 
+    };
   
 
   return (
@@ -167,6 +156,7 @@ function Member1() {
           height: "75px",
           fontSize: "20px",
           fontFamily: "Inter",
+          cursor: "pointer",
         }}
         onClick={handleDeleteMember}>
         ลบบัญชี

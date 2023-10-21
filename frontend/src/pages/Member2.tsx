@@ -1,7 +1,7 @@
 import Navbar from "./Navbar";
 import log_out from "../assets/log-out.png";
 import user3 from "../assets/user (3).png";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { updatedMemberData } from "../services/https/Member";
 import { useNavigate } from "react-router-dom";
@@ -9,30 +9,30 @@ import { MemberInterface } from "../interfaces/IMember";
 import { DeleteMember } from "../services/https/Member";
 
 function Member2() {
-
   //อัปเดตตัวแปรสถานะ เพื่อเก็บค่าอินพุตของแบบฟอร์ม
 
   const navigate = useNavigate(); // ใช้ navigate เพื่อเปลี่ยนหน้า
-  const apiUrl = "http://localhost:8080";
-  
+
   const [editmember, setMember] = useState<Partial<MemberInterface>>({});
+
+  useEffect(() => {
+    handleSubmit();
+  }, []);
+
   const handleSubmit = async () => {
     const data = await updatedMemberData(editmember);
     if (data) {
-      setMember(data);
-      navigate("/Member1") ;
+      setMember(editmember);
+      navigate("/Member1");
     }
+}
 
     const handleDeleteMember = async () => {
-      const result = await DeleteMember(id);
+      const result = await DeleteMember(Number("id"));
       if (result) {
         window.location.reload();
       }
     };
-
-
-
-    
 
     return (
       <div>
@@ -149,6 +149,7 @@ function Member2() {
             height: "75px",
             fontSize: "20px",
             fontFamily: "Inter",
+            cursor: "pointer",
           }}
           onClick={handleDeleteMember}
         >
@@ -344,7 +345,7 @@ function Member2() {
               borderRadius: "10px",
               marginTop: "50px",
             }}
-          >
+            onClick={handleSubmit}>
             บันทึกข้อมูล
           </button>
         </form>
@@ -380,5 +381,5 @@ function Member2() {
       </div>
     );
   };
-}
+
 export default Member2;

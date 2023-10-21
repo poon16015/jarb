@@ -34,22 +34,32 @@ func UpdatedMemberData(c *gin.Context) {
 
 
 // DELETE /member/:id
+// func DeleteMember(c *gin.Context) {
+// 	id := c.Param("id")
+
+// 	// Check if the member exists
+// 	var member entity.Member
+// 	if err := entity.DB().First(&member, id).Error; err != nil {
+// 		c.JSON(http.StatusNotFound, gin.H{"error": "Member not found"})
+// 		return
+// 	}
+
+// 	// Delete the member
+// 	if err := entity.DB().Delete(&member).Error; err != nil {
+// 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+// 		return
+// 	}
+
+// 	c.JSON(http.StatusOK, gin.H{"message": "Member deleted successfully"})
+// }
+
+// DeleteMember
 func DeleteMember(c *gin.Context) {
-	id := c.Param("id")
-
-	// Check if the member exists
-	var member entity.Member
-	if err := entity.DB().First(&member, id).Error; err != nil {
-		c.JSON(http.StatusNotFound, gin.H{"error": "Member not found"})
+    
+    id := c.Param("id")
+	if tx := entity.DB().Exec("DELETE FROM member WHERE id = ?", id); tx.RowsAffected == 0 {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "cart not found"})
 		return
 	}
-
-	// Delete the member
-	if err := entity.DB().Delete(&member).Error; err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-		return
-	}
-
-	c.JSON(http.StatusOK, gin.H{"message": "Member deleted successfully"})
+	c.JSON(http.StatusOK, gin.H{"data": id})
 }
-

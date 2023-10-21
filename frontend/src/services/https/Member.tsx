@@ -3,7 +3,7 @@ import { MemberInterface } from "../../interfaces/IMember";
 const apiUrl = "http://localhost:8080";
 
 
-async function getMember() {
+async function GetMember() {
   const id = localStorage.getItem("uid");
   const requestOptions = {
     method: "GET",
@@ -14,7 +14,7 @@ async function getMember() {
   };
 
   try {
-    const response = await fetch(`${apiUrl}/getMember/${id}`, requestOptions);
+    const response = await fetch(`${apiUrl}/GetMember/${id}`, requestOptions);
     const responseData = await response.json();
 
     if (response.status === 200) {
@@ -55,7 +55,7 @@ async function DeleteMember(id: Number | undefined) {
 
   try {
     const response = await fetch(
-      `${apiUrl}/deleteMember/${id}`,
+      `${apiUrl}/DeleteMember/${id}`,
       requestOptions
     ); //*****
     const responseData = await response.json();
@@ -73,4 +73,4 @@ async function DeleteMember(id: Number | undefined) {
 }
 
 
-export {  getMember, updatedMemberData, DeleteMember };
+export {  GetMember, updatedMemberData, DeleteMember };

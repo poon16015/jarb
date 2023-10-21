@@ -33,6 +33,23 @@ func Register(c *gin.Context) {
 		Password: string(password),
 	}
 
+    // สร้าง Member
+	m := entity.Member{
+		Gender:    "",       // โยงความสัมพันธ์กับ Entity Gender
+		Name:      "", // ตั้งค่าฟิลด์ Name
+		Email:     user.Email,     // ตั้งค่าฟิลด์ Email
+		Tel:       "",     // ตั้งค่าฟิลด์ Tel
+		Dob:       "",   // ตั้งค่าฟิลด์ Dob
+	}
+
+	// บันทึก Member
+	if err := entity.DB().Create(&m).Error; err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{"data": m})
+
 	// บันทึก
 	if err := entity.DB().Create(&u).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Email is already registered"})
@@ -41,3 +58,9 @@ func Register(c *gin.Context) {
     // ส่งข้อความคืนว่าสร้างผู้ใช้เรียบร้อย
     c.JSON(http.StatusOK, gin.H{"message": "User created successfully"})
 }
+
+
+
+	
+
+

@@ -8,10 +8,10 @@ import (
 // GET /members/:id
 func GetMember(c *gin.Context) {
 	var member entity.Member
-	id := c.Param("id")
+	id := c.Param("uid")
 
 	// Retrieve member by ID
-	err := entity.DB().First(&member, id).Error
+	err := entity.DB().First(&member,id).Error
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
