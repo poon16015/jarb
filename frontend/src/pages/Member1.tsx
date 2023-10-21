@@ -45,7 +45,7 @@ function Member1() {
     };
 
     const handleDeleteMember = async () => {
-      const result = await DeleteMember();
+      const result = await DeleteMember ();
       if (result) {
         window.location.reload();
       }

@@ -20,7 +20,7 @@ function Member2() {
     const data = await updatedMemberData(editmember);
     if (data) {
       setMember(data);
-      navigate("/Member1");
+      navigate("/Member1") ;
     }
 
     const handleDeleteMember = async () => {
