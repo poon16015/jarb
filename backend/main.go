@@ -29,7 +29,8 @@ func main() {
 	//cart
 	r.GET("/GetCart/:id", controller.GetCart)
 	r.DELETE("/DelCart/:id", controller.DeleteCart)
-	
+	//
+	r.GET("/GetProducts/:id", controller.GetCart)
 	r.Run()
 }
 

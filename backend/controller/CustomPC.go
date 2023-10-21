@@ -8,7 +8,7 @@ import (
 
 
 
-func GetProductCustom(c *gin.Context) {
+func GetProducts(c *gin.Context) {
 	var Products  []entity.Product
 	if err :=entity.DB().Raw("SELECT * FROM Products ").Scan(&Products).Error; err != nil{
 
