@@ -44,7 +44,7 @@ func Register(c *gin.Context) {
 
 	// บันทึก Member
 	if err := entity.DB().Create(&m).Error; err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Email is already registered"})
 		return
 	}
 
