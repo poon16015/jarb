@@ -5,11 +5,11 @@ import "gorm.io/gorm"
 
 type Member struct {
 	gorm.Model
-	Name string `gorm:"uniqueIndex"`
+	Name string 
 	Gender string
 	Dob    string
 	Tel    string
-	Email  string
+	Email  string `gorm:"uniqueIndex"`
 
 	AccountID *uint 
 
